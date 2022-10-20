@@ -23,7 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnIDKBRO = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnInicioTPV = New System.Windows.Forms.Button()
         Me.btnAcercaDe = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -39,14 +39,14 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'btnIDKBRO
+        'btnSalir
         '
-        Me.btnIDKBRO.Location = New System.Drawing.Point(111, 206)
-        Me.btnIDKBRO.Name = "btnIDKBRO"
-        Me.btnIDKBRO.Size = New System.Drawing.Size(148, 134)
-        Me.btnIDKBRO.TabIndex = 1
-        Me.btnIDKBRO.Text = "IDK BRO"
-        Me.btnIDKBRO.UseVisualStyleBackColor = True
+        Me.btnSalir.Location = New System.Drawing.Point(554, 206)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(148, 134)
+        Me.btnSalir.TabIndex = 1
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = True
         '
         'btnInicioTPV
         '
@@ -59,7 +59,7 @@ Partial Class Form1
         '
         'btnAcercaDe
         '
-        Me.btnAcercaDe.Location = New System.Drawing.Point(547, 206)
+        Me.btnAcercaDe.Location = New System.Drawing.Point(110, 206)
         Me.btnAcercaDe.Name = "btnAcercaDe"
         Me.btnAcercaDe.Size = New System.Drawing.Size(148, 134)
         Me.btnAcercaDe.TabIndex = 3
@@ -74,7 +74,7 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnAcercaDe)
         Me.Controls.Add(Me.btnInicioTPV)
-        Me.Controls.Add(Me.btnIDKBRO)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Form1"
         Me.Text = "Bar AfterLife TPV"
@@ -84,7 +84,7 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents btnIDKBRO As Button
+    Friend WithEvents btnSalir As Button
     Friend WithEvents btnInicioTPV As Button
     Friend WithEvents btnAcercaDe As Button
 End Class
