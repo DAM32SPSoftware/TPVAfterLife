@@ -33,7 +33,8 @@ Partial Class Form1
         '
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.Image = Global.TPVAfterLife.My.Resources.Resources.LogoLetrero_color_cremita_
-        Me.PictureBox1.Location = New System.Drawing.Point(-3, -102)
+        Me.PictureBox1.Location = New System.Drawing.Point(10, -123)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(1280, 720)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -55,10 +56,11 @@ Partial Class Form1
         Me.btnGUAcercaDe.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUAcercaDe.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUAcercaDe.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUAcercaDe.Location = New System.Drawing.Point(185, 467)
+        Me.btnGUAcercaDe.Location = New System.Drawing.Point(258, 469)
+        Me.btnGUAcercaDe.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUAcercaDe.Name = "btnGUAcercaDe"
         Me.btnGUAcercaDe.ShadowDecoration.BorderRadius = 20
-        Me.btnGUAcercaDe.Size = New System.Drawing.Size(319, 105)
+        Me.btnGUAcercaDe.Size = New System.Drawing.Size(279, 79)
         Me.btnGUAcercaDe.TabIndex = 4
         Me.btnGUAcercaDe.Text = "Acerca de SP Software"
         '
@@ -66,7 +68,12 @@ Partial Class Form1
         '
         Me.btnGUIniciarTPV.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUIniciarTPV.BackColor = System.Drawing.Color.Transparent
+        Me.btnGUIniciarTPV.BorderRadius = 1
         Me.btnGUIniciarTPV.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGUIniciarTPV.CustomizableEdges.BottomLeft = False
+        Me.btnGUIniciarTPV.CustomizableEdges.BottomRight = False
+        Me.btnGUIniciarTPV.CustomizableEdges.TopLeft = False
+        Me.btnGUIniciarTPV.CustomizableEdges.TopRight = False
         Me.btnGUIniciarTPV.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnGUIniciarTPV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnGUIniciarTPV.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -74,10 +81,11 @@ Partial Class Form1
         Me.btnGUIniciarTPV.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUIniciarTPV.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUIniciarTPV.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUIniciarTPV.Location = New System.Drawing.Point(510, 467)
+        Me.btnGUIniciarTPV.Location = New System.Drawing.Point(542, 469)
+        Me.btnGUIniciarTPV.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUIniciarTPV.Name = "btnGUIniciarTPV"
         Me.btnGUIniciarTPV.ShadowDecoration.BorderRadius = 20
-        Me.btnGUIniciarTPV.Size = New System.Drawing.Size(293, 105)
+        Me.btnGUIniciarTPV.Size = New System.Drawing.Size(256, 79)
         Me.btnGUIniciarTPV.TabIndex = 5
         Me.btnGUIniciarTPV.Text = "Iniciar TPV"
         '
@@ -96,27 +104,29 @@ Partial Class Form1
         Me.btnGUSalir.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUSalir.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUSalir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUSalir.Location = New System.Drawing.Point(809, 467)
+        Me.btnGUSalir.Location = New System.Drawing.Point(804, 469)
+        Me.btnGUSalir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUSalir.Name = "btnGUSalir"
         Me.btnGUSalir.ShadowDecoration.BorderRadius = 15
         Me.btnGUSalir.ShadowDecoration.CustomizableEdges.BottomLeft = False
         Me.btnGUSalir.ShadowDecoration.CustomizableEdges.TopLeft = False
-        Me.btnGUSalir.Size = New System.Drawing.Size(312, 105)
+        Me.btnGUSalir.Size = New System.Drawing.Size(273, 79)
         Me.btnGUSalir.TabIndex = 6
         Me.btnGUSalir.Text = "Salir"
         '
         'Form1
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.None
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1273, 768)
+        Me.ClientSize = New System.Drawing.Size(1307, 654)
         Me.Controls.Add(Me.btnGUSalir)
         Me.Controls.Add(Me.btnGUIniciarTPV)
         Me.Controls.Add(Me.btnGUAcercaDe)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Bar AfterLife TPV"

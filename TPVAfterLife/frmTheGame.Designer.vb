@@ -31,9 +31,9 @@ Partial Class frmTheGame
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label1.Location = New System.Drawing.Point(196, 70)
+        Me.Label1.Location = New System.Drawing.Point(190, 52)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(283, 67)
+        Me.Label1.Size = New System.Drawing.Size(224, 54)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "THE GAME"
         '
@@ -50,20 +50,23 @@ Partial Class frmTheGame
         Me.btnGUCerrar.FillColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(110, Byte), Integer))
         Me.btnGUCerrar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUCerrar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(107, Byte), Integer))
-        Me.btnGUCerrar.Location = New System.Drawing.Point(274, 191)
+        Me.btnGUCerrar.Location = New System.Drawing.Point(240, 143)
+        Me.btnGUCerrar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUCerrar.Name = "btnGUCerrar"
-        Me.btnGUCerrar.Size = New System.Drawing.Size(135, 62)
+        Me.btnGUCerrar.Size = New System.Drawing.Size(118, 46)
         Me.btnGUCerrar.TabIndex = 9
         Me.btnGUCerrar.Text = "Cerrar"
         '
         'frmTheGame
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(678, 355)
+        Me.ClientSize = New System.Drawing.Size(593, 266)
         Me.Controls.Add(Me.btnGUCerrar)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmTheGame"

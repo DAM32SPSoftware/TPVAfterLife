@@ -39,9 +39,10 @@ Partial Class frmAcercaDe
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.TPVAfterLife.My.Resources.Resources.SpLogo
-        Me.PictureBox1.Location = New System.Drawing.Point(174, 2)
+        Me.PictureBox1.Location = New System.Drawing.Point(155, 54)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(475, 278)
+        Me.PictureBox1.Size = New System.Drawing.Size(416, 208)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -51,9 +52,9 @@ Partial Class frmAcercaDe
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(240, 218)
+        Me.Label1.Location = New System.Drawing.Point(213, 216)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(302, 25)
+        Me.Label1.Size = New System.Drawing.Size(238, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SP Soluciones de Software S.Coop."
         '
@@ -61,9 +62,9 @@ Partial Class frmAcercaDe
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(240, 252)
+        Me.Label2.Location = New System.Drawing.Point(213, 241)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(181, 20)
+        Me.Label2.Size = New System.Drawing.Size(143, 15)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "TPV Bar AfterLife v.12.04.2"
         '
@@ -72,9 +73,9 @@ Partial Class frmAcercaDe
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(240, 281)
+        Me.Label3.Location = New System.Drawing.Point(213, 263)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(245, 25)
+        Me.Label3.Size = New System.Drawing.Size(194, 20)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "© 2022 SP Software Studios"
         '
@@ -83,9 +84,9 @@ Partial Class frmAcercaDe
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(240, 312)
+        Me.Label4.Location = New System.Drawing.Point(213, 286)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(268, 25)
+        Me.Label4.Size = New System.Drawing.Size(211, 20)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Todos los derechos reservados"
         '
@@ -94,9 +95,9 @@ Partial Class frmAcercaDe
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(240, 344)
+        Me.Label5.Location = New System.Drawing.Point(213, 310)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(316, 25)
+        Me.Label5.Size = New System.Drawing.Size(247, 20)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Para obtener mas información pulsa"
         '
@@ -106,9 +107,9 @@ Partial Class frmAcercaDe
         Me.lblAqui.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblAqui.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point)
         Me.lblAqui.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblAqui.Location = New System.Drawing.Point(549, 344)
+        Me.lblAqui.Location = New System.Drawing.Point(455, 310)
         Me.lblAqui.Name = "lblAqui"
-        Me.lblAqui.Size = New System.Drawing.Size(49, 25)
+        Me.lblAqui.Size = New System.Drawing.Size(38, 20)
         Me.lblAqui.TabIndex = 7
         Me.lblAqui.Text = "aquí"
         '
@@ -125,9 +126,10 @@ Partial Class frmAcercaDe
         Me.btnGUAceptar.FillColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(110, Byte), Integer))
         Me.btnGUAceptar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUAceptar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(107, Byte), Integer))
-        Me.btnGUAceptar.Location = New System.Drawing.Point(349, 408)
+        Me.btnGUAceptar.Location = New System.Drawing.Point(305, 371)
+        Me.btnGUAceptar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUAceptar.Name = "btnGUAceptar"
-        Me.btnGUAceptar.Size = New System.Drawing.Size(129, 56)
+        Me.btnGUAceptar.Size = New System.Drawing.Size(113, 42)
         Me.btnGUAceptar.TabIndex = 8
         Me.btnGUAceptar.Text = "Aceptar"
         '
@@ -139,11 +141,11 @@ Partial Class frmAcercaDe
         '
         'frmAcercaDe
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 492)
+        Me.ClientSize = New System.Drawing.Size(700, 465)
         Me.Controls.Add(Me.btnGUAceptar)
         Me.Controls.Add(Me.lblAqui)
         Me.Controls.Add(Me.Label5)
@@ -154,6 +156,7 @@ Partial Class frmAcercaDe
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmAcercaDe"
