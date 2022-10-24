@@ -20,5 +20,7 @@ Public Class frmConfirmacion
     Private Sub frmConfirmacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblPregunta.MaximumSize = New Size(400, 200)
         lblPregunta.AutoSize = True
+        AcceptButton = btnGUConfirmar
+        CancelButton = btnGUDenegar
     End Sub
 End Class

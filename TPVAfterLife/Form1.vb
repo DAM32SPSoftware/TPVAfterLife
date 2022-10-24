@@ -2,8 +2,10 @@
 Imports System.Windows.Forms.Design.AxImporter
 
 Public Class Form1
-    Protected Overrides Sub Finalize()
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AcceptButton = btnGUIniciarTPV
+        CancelButton = btnGUSalir
     End Sub
 
     Private Sub btnGUAcercaDe_Click(sender As Object, e As EventArgs) Handles btnGUAcercaDe.Click
@@ -20,6 +22,5 @@ Public Class Form1
     Private Sub btnGUIniciarTPV_Click(sender As Object, e As EventArgs) Handles btnGUIniciarTPV.Click
         frmLogin.ShowDialog()
     End Sub
-
 
 End Class

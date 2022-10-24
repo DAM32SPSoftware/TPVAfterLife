@@ -15,6 +15,7 @@
     Private Sub frmMensaje_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblMensaje.MaximumSize = New Size(380, 200)
         lblMensaje.AutoSize = True
+        AcceptButton = btnGUAceptar
     End Sub
 
 End Class

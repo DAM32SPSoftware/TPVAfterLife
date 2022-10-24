@@ -9,6 +9,8 @@ Public Class frmLogin
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tbContrasenia.ResetText()
         tbUsuario.ResetText()
+        AcceptButton = btnGUIniciarSesion
+        CancelButton = btnGUCancelar
     End Sub
 
     Private Sub btnGUIniciarSesion_Click(sender As Object, e As EventArgs) Handles btnGUIniciarSesion.Click
@@ -29,7 +31,6 @@ Public Class frmLogin
         miConexion.Open()
 
         'dataAdapter
-        'miDataAdapter = New SqlDataAdapter("SELECT * FROM CuentasEmpleados where Usuario=" + tbUsuario.Text.ToLower() + "and Contraseña=" + tbContrasenia.Text.ToLower(), miConexion)
         miDataAdapter = New SqlDataAdapter("SELECT * FROM CuentasEmpleados", miConexion)
 
         'commandBuilder
@@ -43,6 +44,7 @@ Public Class frmLogin
         Try
             userlogin = myDataRow(0)
             If usuario = userlogin("Usuario") And contrasenia = userlogin("Contraseña") Then
+                Me.Visible = False
                 Me.Close()
                 frmPaginaPrincipal.ShowDialog()
             Else

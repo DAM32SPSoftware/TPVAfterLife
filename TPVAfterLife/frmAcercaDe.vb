@@ -6,4 +6,9 @@
     Private Sub btnGUAceptar_Click(sender As Object, e As EventArgs) Handles btnGUAceptar.Click
         Me.Close()
     End Sub
+
+    Private Sub frmAcercaDe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AcceptButton = btnGUAceptar
+        CancelButton = btnGUAceptar
+    End Sub
 End Class
