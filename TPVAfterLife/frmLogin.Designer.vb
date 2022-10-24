@@ -38,14 +38,14 @@ Partial Class frmLogin
         Me.tbUsuario.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.tbUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.tbUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.tbUsuario.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.tbUsuario.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.tbUsuario.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.tbUsuario.Location = New System.Drawing.Point(318, 170)
+        Me.tbUsuario.Location = New System.Drawing.Point(318, 177)
         Me.tbUsuario.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tbUsuario.MaxLength = 20
         Me.tbUsuario.Name = "tbUsuario"
         Me.tbUsuario.PlaceholderText = "Escriba aquí"
-        Me.tbUsuario.Size = New System.Drawing.Size(245, 34)
+        Me.tbUsuario.Size = New System.Drawing.Size(245, 43)
         Me.tbUsuario.TabIndex = 0
         '
         'tbContrasenia
@@ -53,26 +53,26 @@ Partial Class frmLogin
         Me.tbContrasenia.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.tbContrasenia.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.tbContrasenia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.tbContrasenia.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.tbContrasenia.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.tbContrasenia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.tbContrasenia.Location = New System.Drawing.Point(318, 241)
+        Me.tbContrasenia.Location = New System.Drawing.Point(318, 248)
         Me.tbContrasenia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tbContrasenia.MaxLength = 20
         Me.tbContrasenia.Name = "tbContrasenia"
         Me.tbContrasenia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.tbContrasenia.PlaceholderText = "Escriba aquí"
-        Me.tbContrasenia.Size = New System.Drawing.Size(245, 34)
+        Me.tbContrasenia.Size = New System.Drawing.Size(245, 43)
         Me.tbContrasenia.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(150, 170)
+        Me.Label1.Location = New System.Drawing.Point(125, 180)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 32)
+        Me.Label1.Size = New System.Drawing.Size(123, 37)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Usuario:"
         '
@@ -80,11 +80,11 @@ Partial Class frmLogin
         '
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(150, 241)
+        Me.Label2.Location = New System.Drawing.Point(125, 251)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(150, 32)
+        Me.Label2.Size = New System.Drawing.Size(169, 37)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Contraseña:"
         '
@@ -101,13 +101,13 @@ Partial Class frmLogin
         Me.btnGUIniciarSesion.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnGUIniciarSesion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnGUIniciarSesion.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.btnGUIniciarSesion.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGUIniciarSesion.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUIniciarSesion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUIniciarSesion.Location = New System.Drawing.Point(359, 325)
+        Me.btnGUIniciarSesion.Location = New System.Drawing.Point(354, 341)
         Me.btnGUIniciarSesion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUIniciarSesion.Name = "btnGUIniciarSesion"
         Me.btnGUIniciarSesion.ShadowDecoration.BorderRadius = 20
-        Me.btnGUIniciarSesion.Size = New System.Drawing.Size(234, 54)
+        Me.btnGUIniciarSesion.Size = New System.Drawing.Size(293, 79)
         Me.btnGUIniciarSesion.TabIndex = 6
         Me.btnGUIniciarSesion.Text = "Iniciar sesión"
         '
@@ -115,7 +115,7 @@ Partial Class frmLogin
         '
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.Image = Global.TPVAfterLife.My.Resources.Resources.LogoIcono_color_cremita_
-        Me.PictureBox1.Location = New System.Drawing.Point(284, -2)
+        Me.PictureBox1.Location = New System.Drawing.Point(284, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(154, 153)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -135,13 +135,13 @@ Partial Class frmLogin
         Me.btnGUCancelar.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnGUCancelar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnGUCancelar.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.btnGUCancelar.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGUCancelar.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUCancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUCancelar.Location = New System.Drawing.Point(119, 325)
+        Me.btnGUCancelar.Location = New System.Drawing.Point(55, 341)
         Me.btnGUCancelar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUCancelar.Name = "btnGUCancelar"
         Me.btnGUCancelar.ShadowDecoration.BorderRadius = 20
-        Me.btnGUCancelar.Size = New System.Drawing.Size(234, 54)
+        Me.btnGUCancelar.Size = New System.Drawing.Size(293, 79)
         Me.btnGUCancelar.TabIndex = 8
         Me.btnGUCancelar.Text = "Cancelar"
         '
@@ -150,7 +150,7 @@ Partial Class frmLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(700, 428)
+        Me.ClientSize = New System.Drawing.Size(700, 460)
         Me.Controls.Add(Me.btnGUCancelar)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnGUIniciarSesion)

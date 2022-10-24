@@ -1,29 +1,24 @@
-﻿Public Class frmConfirmacion
+﻿Imports System.Reflection.Emit
 
-    Private respuesta As Boolean
+Public Class frmConfirmacion
 
     Public Sub New(pregunta As String)
-
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
-
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         lblPregunta.Text = pregunta
     End Sub
 
-    Private Sub frmConfirmacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        respuesta = False
-    End Sub
-
     Private Sub btnGUDenegar_Click(sender As Object, e As EventArgs) Handles btnGUDenegar.Click
-        respuesta = False
+        Me.DialogResult = Windows.Forms.DialogResult.Cancel
     End Sub
 
     Private Sub btnGUConfirmar_Click(sender As Object, e As EventArgs) Handles btnGUConfirmar.Click
-
+        Me.DialogResult = Windows.Forms.DialogResult.OK
     End Sub
 
-    Private Sub lblPregunta_Click(sender As Object, e As EventArgs) Handles lblPregunta.Click
-
+    Private Sub frmConfirmacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblPregunta.MaximumSize = New Size(400, 200)
+        lblPregunta.AutoSize = True
     End Sub
 End Class

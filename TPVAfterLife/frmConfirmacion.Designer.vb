@@ -34,19 +34,19 @@ Partial Class frmConfirmacion
         '
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.Image = Global.TPVAfterLife.My.Resources.Resources.pregunta_crema_
-        Me.PictureBox1.Location = New System.Drawing.Point(51, 43)
+        Me.PictureBox1.Location = New System.Drawing.Point(54, 41)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(161, 160)
+        Me.PictureBox1.Size = New System.Drawing.Size(126, 137)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
         'lblPregunta
         '
-        Me.lblPregunta.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblPregunta.AutoSize = True
         Me.lblPregunta.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.lblPregunta.Location = New System.Drawing.Point(257, 55)
+        Me.lblPregunta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.lblPregunta.Location = New System.Drawing.Point(219, 58)
         Me.lblPregunta.Name = "lblPregunta"
         Me.lblPregunta.Size = New System.Drawing.Size(192, 46)
         Me.lblPregunta.TabIndex = 1
@@ -70,7 +70,7 @@ Partial Class frmConfirmacion
         Me.btnGUDenegar.Image = Global.TPVAfterLife.My.Resources.Resources.denegar3
         Me.btnGUDenegar.ImageOffset = New System.Drawing.Point(-2, 0)
         Me.btnGUDenegar.ImageSize = New System.Drawing.Size(40, 40)
-        Me.btnGUDenegar.Location = New System.Drawing.Point(89, 264)
+        Me.btnGUDenegar.Location = New System.Drawing.Point(54, 221)
         Me.btnGUDenegar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUDenegar.Name = "btnGUDenegar"
         Me.btnGUDenegar.ShadowDecoration.BorderRadius = 20
@@ -95,7 +95,7 @@ Partial Class frmConfirmacion
         Me.btnGUConfirmar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.btnGUConfirmar.Image = Global.TPVAfterLife.My.Resources.Resources.check
         Me.btnGUConfirmar.ImageSize = New System.Drawing.Size(40, 35)
-        Me.btnGUConfirmar.Location = New System.Drawing.Point(375, 264)
+        Me.btnGUConfirmar.Location = New System.Drawing.Point(340, 221)
         Me.btnGUConfirmar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUConfirmar.Name = "btnGUConfirmar"
         Me.btnGUConfirmar.ShadowDecoration.BorderRadius = 20
@@ -108,7 +108,7 @@ Partial Class frmConfirmacion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(730, 395)
+        Me.ClientSize = New System.Drawing.Size(675, 338)
         Me.Controls.Add(Me.btnGUDenegar)
         Me.Controls.Add(Me.btnGUConfirmar)
         Me.Controls.Add(Me.lblPregunta)

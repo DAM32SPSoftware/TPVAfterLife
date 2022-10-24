@@ -29,11 +29,11 @@ Partial Class frmTheGame
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 40.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label1.Location = New System.Drawing.Point(190, 52)
+        Me.Label1.Location = New System.Drawing.Point(148, 42)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(224, 54)
+        Me.Label1.Size = New System.Drawing.Size(304, 72)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "THE GAME"
         '
@@ -48,12 +48,12 @@ Partial Class frmTheGame
         Me.btnGUCerrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnGUCerrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnGUCerrar.FillColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(110, Byte), Integer))
-        Me.btnGUCerrar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGUCerrar.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUCerrar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(107, Byte), Integer))
-        Me.btnGUCerrar.Location = New System.Drawing.Point(240, 143)
+        Me.btnGUCerrar.Location = New System.Drawing.Point(224, 151)
         Me.btnGUCerrar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUCerrar.Name = "btnGUCerrar"
-        Me.btnGUCerrar.Size = New System.Drawing.Size(118, 46)
+        Me.btnGUCerrar.Size = New System.Drawing.Size(151, 64)
         Me.btnGUCerrar.TabIndex = 9
         Me.btnGUCerrar.Text = "Cerrar"
         '
