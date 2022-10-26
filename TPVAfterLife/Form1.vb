@@ -20,7 +20,8 @@ Public Class Form1
     End Sub
 
     Private Sub btnGUIniciarTPV_Click(sender As Object, e As EventArgs) Handles btnGUIniciarTPV.Click
-        frmLogin.ShowDialog()
+        'frmLogin.ShowDialog()
+        frmPaginaPrincipal.ShowDialog()
     End Sub
 
 End Class
