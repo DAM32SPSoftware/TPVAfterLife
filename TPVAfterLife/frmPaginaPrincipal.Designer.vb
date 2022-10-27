@@ -22,6 +22,7 @@ Partial Class frmPaginaPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim btnBorrarProducto As Guna.UI2.WinForms.Guna2Button
         Me.btnGUApagar = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblGUHora = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -47,15 +48,29 @@ Partial Class frmPaginaPrincipal
         Me.btnGUCorregir = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGUCero = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGUOk = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.tbPrecioTotal = New System.Windows.Forms.TextBox()
+        Me.tbArticulo = New System.Windows.Forms.TextBox()
+        Me.tbUnidades = New System.Windows.Forms.TextBox()
+        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.btnEditarComanda = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnUltimaComanda = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnBorrarComanda = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnMesas = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnGestionArticulos = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnGestionEmpleados = New Guna.UI2.WinForms.Guna2Button()
+        btnBorrarProducto = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnGUApagar
         '
-        Me.btnGUApagar.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUApagar.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUApagar.BackColor = System.Drawing.Color.Transparent
         Me.btnGUApagar.BorderRadius = 10
         Me.btnGUApagar.Cursor = System.Windows.Forms.Cursors.Hand
@@ -183,7 +198,7 @@ Partial Class frmPaginaPrincipal
         '
         'Guna2Button1
         '
-        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2Button1.BorderRadius = 10
         Me.Guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand
@@ -204,7 +219,7 @@ Partial Class frmPaginaPrincipal
         '
         'Guna2PictureBox1
         '
-        Me.Guna2PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Guna2PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Guna2PictureBox1.Image = Global.TPVAfterLife.My.Resources.Resources.LogoLetrero_color_cremita_
         Me.Guna2PictureBox1.ImageRotate = 0!
         Me.Guna2PictureBox1.Location = New System.Drawing.Point(21, -32)
@@ -216,9 +231,9 @@ Partial Class frmPaginaPrincipal
         '
         'DataGridView1
         '
-        Me.DataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.DataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(28, 114)
+        Me.DataGridView1.Location = New System.Drawing.Point(28, 106)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.Size = New System.Drawing.Size(518, 277)
@@ -226,7 +241,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUUno
         '
-        Me.btnGUUno.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUUno.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUUno.BackColor = System.Drawing.Color.Transparent
         Me.btnGUUno.BorderRadius = 10
         Me.btnGUUno.Cursor = System.Windows.Forms.Cursors.Hand
@@ -250,7 +265,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUDos
         '
-        Me.btnGUDos.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUDos.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUDos.BackColor = System.Drawing.Color.Transparent
         Me.btnGUDos.BorderRadius = 10
         Me.btnGUDos.Cursor = System.Windows.Forms.Cursors.Hand
@@ -275,7 +290,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUTres
         '
-        Me.btnGUTres.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUTres.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUTres.BackColor = System.Drawing.Color.Transparent
         Me.btnGUTres.BorderRadius = 10
         Me.btnGUTres.Cursor = System.Windows.Forms.Cursors.Hand
@@ -299,7 +314,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUSeis
         '
-        Me.btnGUSeis.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUSeis.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUSeis.BackColor = System.Drawing.Color.Transparent
         Me.btnGUSeis.BorderRadius = 10
         Me.btnGUSeis.Cursor = System.Windows.Forms.Cursors.Hand
@@ -324,7 +339,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUCinco
         '
-        Me.btnGUCinco.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUCinco.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUCinco.BackColor = System.Drawing.Color.Transparent
         Me.btnGUCinco.BorderRadius = 10
         Me.btnGUCinco.Cursor = System.Windows.Forms.Cursors.Hand
@@ -349,7 +364,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUCuatro
         '
-        Me.btnGUCuatro.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUCuatro.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUCuatro.BackColor = System.Drawing.Color.Transparent
         Me.btnGUCuatro.BorderRadius = 10
         Me.btnGUCuatro.Cursor = System.Windows.Forms.Cursors.Hand
@@ -374,7 +389,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUNueve
         '
-        Me.btnGUNueve.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUNueve.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUNueve.BackColor = System.Drawing.Color.Transparent
         Me.btnGUNueve.BorderRadius = 10
         Me.btnGUNueve.Cursor = System.Windows.Forms.Cursors.Hand
@@ -399,7 +414,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUOcho
         '
-        Me.btnGUOcho.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUOcho.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUOcho.BackColor = System.Drawing.Color.Transparent
         Me.btnGUOcho.BorderRadius = 10
         Me.btnGUOcho.Cursor = System.Windows.Forms.Cursors.Hand
@@ -424,7 +439,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUSiete
         '
-        Me.btnGUSiete.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUSiete.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUSiete.BackColor = System.Drawing.Color.Transparent
         Me.btnGUSiete.BorderRadius = 10
         Me.btnGUSiete.Cursor = System.Windows.Forms.Cursors.Hand
@@ -449,7 +464,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUCorregir
         '
-        Me.btnGUCorregir.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUCorregir.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUCorregir.BackColor = System.Drawing.Color.Transparent
         Me.btnGUCorregir.BorderRadius = 10
         Me.btnGUCorregir.Cursor = System.Windows.Forms.Cursors.Hand
@@ -473,7 +488,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUCero
         '
-        Me.btnGUCero.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUCero.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUCero.BackColor = System.Drawing.Color.Transparent
         Me.btnGUCero.BorderRadius = 10
         Me.btnGUCero.Cursor = System.Windows.Forms.Cursors.Hand
@@ -498,7 +513,7 @@ Partial Class frmPaginaPrincipal
         '
         'btnGUOk
         '
-        Me.btnGUOk.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnGUOk.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnGUOk.BackColor = System.Drawing.Color.Transparent
         Me.btnGUOk.BorderRadius = 10
         Me.btnGUOk.Cursor = System.Windows.Forms.Cursors.Hand
@@ -520,12 +535,269 @@ Partial Class frmPaginaPrincipal
         Me.btnGUOk.TabIndex = 21
         Me.btnGUOk.Text = "OK"
         '
-        'Panel2
+        'Guna2Panel1
         '
-        Me.Panel2.Location = New System.Drawing.Point(28, 426)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(518, 116)
-        Me.Panel2.TabIndex = 24
+        Me.Guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.Guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.Guna2Panel1.BorderRadius = 10
+        Me.Guna2Panel1.BorderThickness = 12
+        Me.Guna2Panel1.Controls.Add(Me.tbPrecioTotal)
+        Me.Guna2Panel1.Controls.Add(Me.tbArticulo)
+        Me.Guna2Panel1.Controls.Add(Me.tbUnidades)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel3)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel2)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(28, 446)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(518, 114)
+        Me.Guna2Panel1.TabIndex = 25
+        '
+        'tbPrecioTotal
+        '
+        Me.tbPrecioTotal.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tbPrecioTotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.tbPrecioTotal.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.tbPrecioTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.tbPrecioTotal.Location = New System.Drawing.Point(366, 53)
+        Me.tbPrecioTotal.MaxLength = 50
+        Me.tbPrecioTotal.Name = "tbPrecioTotal"
+        Me.tbPrecioTotal.ReadOnly = True
+        Me.tbPrecioTotal.Size = New System.Drawing.Size(117, 34)
+        Me.tbPrecioTotal.TabIndex = 13
+        Me.tbPrecioTotal.Text = "tbPrecioTotal"
+        '
+        'tbArticulo
+        '
+        Me.tbArticulo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tbArticulo.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.tbArticulo.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.tbArticulo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.tbArticulo.Location = New System.Drawing.Point(169, 53)
+        Me.tbArticulo.MaxLength = 50
+        Me.tbArticulo.Name = "tbArticulo"
+        Me.tbArticulo.ReadOnly = True
+        Me.tbArticulo.Size = New System.Drawing.Size(176, 34)
+        Me.tbArticulo.TabIndex = 12
+        Me.tbArticulo.Text = "tbArticulo"
+        '
+        'tbUnidades
+        '
+        Me.tbUnidades.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.tbUnidades.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.tbUnidades.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.tbUnidades.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.tbUnidades.Location = New System.Drawing.Point(32, 53)
+        Me.tbUnidades.MaxLength = 50
+        Me.tbUnidades.Name = "tbUnidades"
+        Me.tbUnidades.ReadOnly = True
+        Me.tbUnidades.Size = New System.Drawing.Size(117, 34)
+        Me.tbUnidades.TabIndex = 11
+        Me.tbUnidades.Text = "tbUnidades"
+        '
+        'Guna2HtmlLabel3
+        '
+        Me.Guna2HtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(366, 26)
+        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(116, 23)
+        Me.Guna2HtmlLabel3.TabIndex = 10
+        Me.Guna2HtmlLabel3.Text = "PRECIO TOTAL:"
+        '
+        'Guna2HtmlLabel2
+        '
+        Me.Guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(169, 27)
+        Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
+        Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(84, 23)
+        Me.Guna2HtmlLabel2.TabIndex = 9
+        Me.Guna2HtmlLabel2.Text = "ARTICULO:"
+        '
+        'Guna2HtmlLabel1
+        '
+        Me.Guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(32, 27)
+        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(90, 23)
+        Me.Guna2HtmlLabel1.TabIndex = 8
+        Me.Guna2HtmlLabel1.Text = "UNIDADES:"
+        '
+        'btnEditarComanda
+        '
+        Me.btnEditarComanda.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnEditarComanda.BackColor = System.Drawing.Color.Transparent
+        Me.btnEditarComanda.BorderRadius = 10
+        Me.btnEditarComanda.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEditarComanda.CustomizableEdges.BottomLeft = False
+        Me.btnEditarComanda.CustomizableEdges.BottomRight = False
+        Me.btnEditarComanda.CustomizableEdges.TopLeft = False
+        Me.btnEditarComanda.CustomizableEdges.TopRight = False
+        Me.btnEditarComanda.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnEditarComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnEditarComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnEditarComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnEditarComanda.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnEditarComanda.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnEditarComanda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnEditarComanda.Location = New System.Drawing.Point(569, 358)
+        Me.btnEditarComanda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnEditarComanda.Name = "btnEditarComanda"
+        Me.btnEditarComanda.ShadowDecoration.BorderRadius = 20
+        Me.btnEditarComanda.Size = New System.Drawing.Size(97, 80)
+        Me.btnEditarComanda.TabIndex = 29
+        Me.btnEditarComanda.Text = "Editar Comanda"
+        '
+        'btnUltimaComanda
+        '
+        Me.btnUltimaComanda.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnUltimaComanda.BackColor = System.Drawing.Color.Transparent
+        Me.btnUltimaComanda.BorderRadius = 10
+        Me.btnUltimaComanda.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnUltimaComanda.CustomizableEdges.BottomLeft = False
+        Me.btnUltimaComanda.CustomizableEdges.BottomRight = False
+        Me.btnUltimaComanda.CustomizableEdges.TopLeft = False
+        Me.btnUltimaComanda.CustomizableEdges.TopRight = False
+        Me.btnUltimaComanda.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnUltimaComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnUltimaComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnUltimaComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnUltimaComanda.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnUltimaComanda.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnUltimaComanda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnUltimaComanda.Location = New System.Drawing.Point(569, 274)
+        Me.btnUltimaComanda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnUltimaComanda.Name = "btnUltimaComanda"
+        Me.btnUltimaComanda.ShadowDecoration.BorderRadius = 20
+        Me.btnUltimaComanda.Size = New System.Drawing.Size(97, 80)
+        Me.btnUltimaComanda.TabIndex = 28
+        Me.btnUltimaComanda.Text = "Ultima Comanda"
+        '
+        'btnBorrarComanda
+        '
+        Me.btnBorrarComanda.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnBorrarComanda.BackColor = System.Drawing.Color.Transparent
+        Me.btnBorrarComanda.BorderRadius = 10
+        Me.btnBorrarComanda.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBorrarComanda.CustomizableEdges.BottomLeft = False
+        Me.btnBorrarComanda.CustomizableEdges.BottomRight = False
+        Me.btnBorrarComanda.CustomizableEdges.TopLeft = False
+        Me.btnBorrarComanda.CustomizableEdges.TopRight = False
+        Me.btnBorrarComanda.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnBorrarComanda.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnBorrarComanda.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnBorrarComanda.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnBorrarComanda.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnBorrarComanda.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnBorrarComanda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnBorrarComanda.Location = New System.Drawing.Point(569, 190)
+        Me.btnBorrarComanda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnBorrarComanda.Name = "btnBorrarComanda"
+        Me.btnBorrarComanda.ShadowDecoration.BorderRadius = 20
+        Me.btnBorrarComanda.Size = New System.Drawing.Size(97, 80)
+        Me.btnBorrarComanda.TabIndex = 27
+        Me.btnBorrarComanda.Text = "Borrar Comanda"
+        '
+        'btnMesas
+        '
+        Me.btnMesas.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnMesas.BackColor = System.Drawing.Color.Transparent
+        Me.btnMesas.BorderRadius = 10
+        Me.btnMesas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMesas.CustomizableEdges.BottomLeft = False
+        Me.btnMesas.CustomizableEdges.BottomRight = False
+        Me.btnMesas.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnMesas.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnMesas.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnMesas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnMesas.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnMesas.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnMesas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnMesas.Location = New System.Drawing.Point(569, 106)
+        Me.btnMesas.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnMesas.Name = "btnMesas"
+        Me.btnMesas.ShadowDecoration.BorderRadius = 20
+        Me.btnMesas.Size = New System.Drawing.Size(97, 80)
+        Me.btnMesas.TabIndex = 26
+        Me.btnMesas.Text = "Mesas"
+        '
+        'btnBorrarProducto
+        '
+        btnBorrarProducto.Anchor = System.Windows.Forms.AnchorStyles.None
+        btnBorrarProducto.BackColor = System.Drawing.Color.Transparent
+        btnBorrarProducto.BorderRadius = 10
+        btnBorrarProducto.Cursor = System.Windows.Forms.Cursors.Hand
+        btnBorrarProducto.CustomizableEdges.TopLeft = False
+        btnBorrarProducto.CustomizableEdges.TopRight = False
+        btnBorrarProducto.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        btnBorrarProducto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        btnBorrarProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        btnBorrarProducto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        btnBorrarProducto.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        btnBorrarProducto.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        btnBorrarProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        btnBorrarProducto.Location = New System.Drawing.Point(569, 442)
+        btnBorrarProducto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        btnBorrarProducto.Name = "btnBorrarProducto"
+        btnBorrarProducto.ShadowDecoration.BorderRadius = 20
+        btnBorrarProducto.Size = New System.Drawing.Size(97, 80)
+        btnBorrarProducto.TabIndex = 30
+        btnBorrarProducto.Text = "Borrar Producto"
+        '
+        'btnGestionArticulos
+        '
+        Me.btnGestionArticulos.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnGestionArticulos.BackColor = System.Drawing.Color.Transparent
+        Me.btnGestionArticulos.BorderRadius = 10
+        Me.btnGestionArticulos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGestionArticulos.CustomizableEdges.TopLeft = False
+        Me.btnGestionArticulos.CustomizableEdges.TopRight = False
+        Me.btnGestionArticulos.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnGestionArticulos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnGestionArticulos.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnGestionArticulos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGestionArticulos.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnGestionArticulos.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGestionArticulos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnGestionArticulos.Location = New System.Drawing.Point(569, 664)
+        Me.btnGestionArticulos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGestionArticulos.Name = "btnGestionArticulos"
+        Me.btnGestionArticulos.ShadowDecoration.BorderRadius = 20
+        Me.btnGestionArticulos.Size = New System.Drawing.Size(97, 80)
+        Me.btnGestionArticulos.TabIndex = 32
+        Me.btnGestionArticulos.Text = "Gestion Articulos"
+        '
+        'btnGestionEmpleados
+        '
+        Me.btnGestionEmpleados.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnGestionEmpleados.BackColor = System.Drawing.Color.Transparent
+        Me.btnGestionEmpleados.BorderRadius = 10
+        Me.btnGestionEmpleados.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGestionEmpleados.CustomizableEdges.BottomLeft = False
+        Me.btnGestionEmpleados.CustomizableEdges.BottomRight = False
+        Me.btnGestionEmpleados.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnGestionEmpleados.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnGestionEmpleados.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnGestionEmpleados.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGestionEmpleados.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnGestionEmpleados.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGestionEmpleados.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnGestionEmpleados.Location = New System.Drawing.Point(569, 580)
+        Me.btnGestionEmpleados.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGestionEmpleados.Name = "btnGestionEmpleados"
+        Me.btnGestionEmpleados.ShadowDecoration.BorderRadius = 20
+        Me.btnGestionEmpleados.Size = New System.Drawing.Size(97, 80)
+        Me.btnGestionEmpleados.TabIndex = 33
+        Me.btnGestionEmpleados.Text = "Gestión Empleados"
         '
         'frmPaginaPrincipal
         '
@@ -533,7 +805,13 @@ Partial Class frmPaginaPrincipal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1295, 1007)
-        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.btnGestionEmpleados)
+        Me.Controls.Add(Me.btnGestionArticulos)
+        Me.Controls.Add(btnBorrarProducto)
+        Me.Controls.Add(Me.btnEditarComanda)
+        Me.Controls.Add(Me.btnUltimaComanda)
+        Me.Controls.Add(Me.btnBorrarComanda)
+        Me.Controls.Add(Me.btnMesas)
         Me.Controls.Add(Me.btnGUCorregir)
         Me.Controls.Add(Me.btnGUCero)
         Me.Controls.Add(Me.btnGUOk)
@@ -551,6 +829,7 @@ Partial Class frmPaginaPrincipal
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnGUApagar)
         Me.Controls.Add(Me.Guna2PictureBox1)
+        Me.Controls.Add(Me.Guna2Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPaginaPrincipal"
         Me.Text = "frmPaginaPrincipal"
@@ -559,6 +838,8 @@ Partial Class frmPaginaPrincipal
         Me.Panel1.PerformLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -589,5 +870,17 @@ Partial Class frmPaginaPrincipal
     Friend WithEvents btnGUCorregir As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGUCero As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGUOk As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents tbPrecioTotal As TextBox
+    Friend WithEvents tbArticulo As TextBox
+    Friend WithEvents tbUnidades As TextBox
+    Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents btnEditarComanda As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnUltimaComanda As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnBorrarComanda As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnMesas As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnGestionArticulos As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnGestionEmpleados As Guna.UI2.WinForms.Guna2Button
 End Class
