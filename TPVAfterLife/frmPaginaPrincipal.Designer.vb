@@ -61,12 +61,39 @@ Partial Class frmPaginaPrincipal
         Me.btnMesas = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGestionArticulos = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGestionEmpleados = New Guna.UI2.WinForms.Guna2Button()
+        Me.tbTotalAPagar = New System.Windows.Forms.TextBox()
+        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.tbMesaSeleccionada = New System.Windows.Forms.TextBox()
+        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         btnBorrarProducto = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'btnBorrarProducto
+        '
+        btnBorrarProducto.Anchor = System.Windows.Forms.AnchorStyles.None
+        btnBorrarProducto.BackColor = System.Drawing.Color.Transparent
+        btnBorrarProducto.BorderRadius = 10
+        btnBorrarProducto.Cursor = System.Windows.Forms.Cursors.Hand
+        btnBorrarProducto.CustomizableEdges.TopLeft = False
+        btnBorrarProducto.CustomizableEdges.TopRight = False
+        btnBorrarProducto.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        btnBorrarProducto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        btnBorrarProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        btnBorrarProducto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        btnBorrarProducto.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        btnBorrarProducto.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        btnBorrarProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        btnBorrarProducto.Location = New System.Drawing.Point(569, 442)
+        btnBorrarProducto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        btnBorrarProducto.Name = "btnBorrarProducto"
+        btnBorrarProducto.ShadowDecoration.BorderRadius = 20
+        btnBorrarProducto.Size = New System.Drawing.Size(97, 80)
+        btnBorrarProducto.TabIndex = 30
+        btnBorrarProducto.Text = "Borrar Producto"
         '
         'btnGUApagar
         '
@@ -209,11 +236,11 @@ Partial Class frmPaginaPrincipal
         Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.Guna2Button1.Location = New System.Drawing.Point(297, 580)
+        Me.Guna2Button1.Location = New System.Drawing.Point(297, 664)
         Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.ShadowDecoration.BorderRadius = 20
-        Me.Guna2Button1.Size = New System.Drawing.Size(249, 332)
+        Me.Guna2Button1.Size = New System.Drawing.Size(249, 248)
         Me.Guna2Button1.TabIndex = 9
         Me.Guna2Button1.Text = "Cobrar"
         '
@@ -730,29 +757,6 @@ Partial Class frmPaginaPrincipal
         Me.btnMesas.TabIndex = 26
         Me.btnMesas.Text = "Mesas"
         '
-        'btnBorrarProducto
-        '
-        btnBorrarProducto.Anchor = System.Windows.Forms.AnchorStyles.None
-        btnBorrarProducto.BackColor = System.Drawing.Color.Transparent
-        btnBorrarProducto.BorderRadius = 10
-        btnBorrarProducto.Cursor = System.Windows.Forms.Cursors.Hand
-        btnBorrarProducto.CustomizableEdges.TopLeft = False
-        btnBorrarProducto.CustomizableEdges.TopRight = False
-        btnBorrarProducto.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        btnBorrarProducto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        btnBorrarProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        btnBorrarProducto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        btnBorrarProducto.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        btnBorrarProducto.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        btnBorrarProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        btnBorrarProducto.Location = New System.Drawing.Point(569, 442)
-        btnBorrarProducto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        btnBorrarProducto.Name = "btnBorrarProducto"
-        btnBorrarProducto.ShadowDecoration.BorderRadius = 20
-        btnBorrarProducto.Size = New System.Drawing.Size(97, 80)
-        btnBorrarProducto.TabIndex = 30
-        btnBorrarProducto.Text = "Borrar Producto"
-        '
         'btnGestionArticulos
         '
         Me.btnGestionArticulos.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -799,12 +803,68 @@ Partial Class frmPaginaPrincipal
         Me.btnGestionEmpleados.TabIndex = 33
         Me.btnGestionEmpleados.Text = "Gestión Empleados"
         '
+        'tbTotalAPagar
+        '
+        Me.tbTotalAPagar.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tbTotalAPagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.tbTotalAPagar.Font = New System.Drawing.Font("Segoe UI", 19.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.tbTotalAPagar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.tbTotalAPagar.Location = New System.Drawing.Point(297, 611)
+        Me.tbTotalAPagar.MaxLength = 50
+        Me.tbTotalAPagar.Name = "tbTotalAPagar"
+        Me.tbTotalAPagar.ReadOnly = True
+        Me.tbTotalAPagar.Size = New System.Drawing.Size(249, 41)
+        Me.tbTotalAPagar.TabIndex = 15
+        Me.tbTotalAPagar.Text = "tbTotalAPagar"
+        '
+        'Guna2HtmlLabel4
+        '
+        Me.Guna2HtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Guna2HtmlLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(297, 573)
+        Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
+        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(174, 32)
+        Me.Guna2HtmlLabel4.TabIndex = 14
+        Me.Guna2HtmlLabel4.Text = "TOTAL A PAGAR:"
+        '
+        'tbMesaSeleccionada
+        '
+        Me.tbMesaSeleccionada.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tbMesaSeleccionada.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.tbMesaSeleccionada.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.tbMesaSeleccionada.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.tbMesaSeleccionada.Location = New System.Drawing.Point(282, 396)
+        Me.tbMesaSeleccionada.MaxLength = 50
+        Me.tbMesaSeleccionada.Name = "tbMesaSeleccionada"
+        Me.tbMesaSeleccionada.ReadOnly = True
+        Me.tbMesaSeleccionada.Size = New System.Drawing.Size(249, 34)
+        Me.tbMesaSeleccionada.TabIndex = 35
+        Me.tbMesaSeleccionada.Text = "tbMesaSeleccionada"
+        '
+        'Guna2HtmlLabel5
+        '
+        Me.Guna2HtmlLabel5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel5.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(47, 396)
+        Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
+        Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(229, 32)
+        Me.Guna2HtmlLabel5.TabIndex = 34
+        Me.Guna2HtmlLabel5.Text = "MESA SELECCIONADA:"
+        '
         'frmPaginaPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1295, 1007)
+        Me.Controls.Add(Me.tbMesaSeleccionada)
+        Me.Controls.Add(Me.Guna2HtmlLabel5)
+        Me.Controls.Add(Me.tbTotalAPagar)
+        Me.Controls.Add(Me.Guna2HtmlLabel4)
         Me.Controls.Add(Me.btnGestionEmpleados)
         Me.Controls.Add(Me.btnGestionArticulos)
         Me.Controls.Add(btnBorrarProducto)
@@ -883,4 +943,8 @@ Partial Class frmPaginaPrincipal
     Friend WithEvents btnMesas As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGestionArticulos As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGestionEmpleados As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents tbTotalAPagar As TextBox
+    Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents tbMesaSeleccionada As TextBox
+    Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class
