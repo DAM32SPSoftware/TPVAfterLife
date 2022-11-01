@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Data.Common
+Imports System.Data.SqlClient
 
 Public Class Conexion
     Private miDataSet As DataSet
@@ -53,7 +54,7 @@ Public Class Conexion
             miDataAdapterEmpleados = Nothing
             miDataAdapterTipoEmpleado = Nothing
             miDataAdapterMesas = Nothing
-            miDataAdapterComandas = Nothing
+            'miDataAdapterComandas = Nothing
             miDataAdapterFacturas = Nothing
             miDataAdapterCajas = Nothing
             miDataAdapterLineaComandas = Nothing
@@ -66,8 +67,8 @@ Public Class Conexion
                         miDataSet.Tables("Empleados").Columns("IdEmpleado"),
                         miDataSet.Tables("Empleados").Columns("Gerente"))
             miDataSet.Relations.Add("CuentasEmpleados_Empleados",
-                        miDataSet.Tables("Empleados").Columns("IdEmpleado"),
-                        miDataSet.Tables("CuentasEmpleados").Columns("IdEmpleado"))
+                        miDataSet.Tables("CuentasEmpleados").Columns("IdEmpleado"),
+                        miDataSet.Tables("Empleados").Columns("IdEmpleado"))
             miDataSet.Relations.Add("Empleados_TipoEmpleado",
                         miDataSet.Tables("TipoEmpleado").Columns("IdTipoEmpleado"),
                         miDataSet.Tables("Empleados").Columns("IdTipoEmpleado"))
@@ -99,6 +100,18 @@ Public Class Conexion
             Console.WriteLine(ex)
             Exit Sub
         End Try
+    End Sub
+    Public Sub ActualizarDB()
+        'miDataAdapterCuentasEmpleados.Update(miDataSet, "CuentasEmpleados")
+        'miDataAdapterEmpleados.Update(miDataSet, "Empleados")
+        'miDataAdapterTipoEmpleado.Update(miDataSet, "TipoEmpleado")
+        'miDataAdapterMesas.Update(miDataSet, "Mesas")
+        miDataAdapterComandas.Update(miDataSet, "Comandas")
+        'miDataAdapterFacturas.Update(miDataSet, "Facturas")
+        'miDataAdapterCajas.Update(miDataSet, "Cajas")
+        'miDataAdapterLineaComandas.Update(miDataSet, "LineaComandas")
+        'miDataAdapterArticulos.Update(miDataSet, "Articulos")
+        'miDataAdapterCategorias.Update(miDataSet, "Categorias")
     End Sub
 
     Public Property _miDataSet As DataSet

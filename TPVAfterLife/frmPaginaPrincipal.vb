@@ -60,6 +60,12 @@
 
     Private Sub btnMesas_Click(sender As Object, e As EventArgs) Handles btnMesas.Click
         Dim selecMesas As frmSeleccionMesa = New frmSeleccionMesa
-        selecMesas.ShowDialog()
+        If (selecMesas.ShowDialog() = DialogResult.OK) Then
+            Dim codMesa As String = selecMesas.codMesa
+
+        Else
+            Return
+        End If
+
     End Sub
 End Class

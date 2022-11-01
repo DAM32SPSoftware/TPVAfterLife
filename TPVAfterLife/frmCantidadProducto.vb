@@ -10,6 +10,9 @@
     Private Sub frmCantidadProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.cantidad = 0
         Me.verificaMayorQueCero()
+
+        AcceptButton = btnGUAceptar
+        CancelButton = btnGUCancelar
     End Sub
 
     Private Sub btnGUCancelar_Click(sender As Object, e As EventArgs) Handles btnGUCancelar.Click

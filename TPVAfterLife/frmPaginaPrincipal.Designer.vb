@@ -36,7 +36,7 @@ Partial Class frmPaginaPrincipal
         Me.lblGUInfoEmpleado = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvComandas = New System.Windows.Forms.DataGridView()
         Me.btnGUUno = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGUDos = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGUTres = New Guna.UI2.WinForms.Guna2Button()
@@ -71,7 +71,7 @@ Partial Class frmPaginaPrincipal
         btnBorrarProducto = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvComandas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -259,15 +259,15 @@ Partial Class frmPaginaPrincipal
         Me.Guna2PictureBox1.TabIndex = 10
         Me.Guna2PictureBox1.TabStop = False
         '
-        'DataGridView1
+        'dgvComandas
         '
-        Me.DataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(28, 106)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 25
-        Me.DataGridView1.Size = New System.Drawing.Size(518, 332)
-        Me.DataGridView1.TabIndex = 11
+        Me.dgvComandas.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.dgvComandas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvComandas.Location = New System.Drawing.Point(28, 106)
+        Me.dgvComandas.Name = "dgvComandas"
+        Me.dgvComandas.RowTemplate.Height = 25
+        Me.dgvComandas.Size = New System.Drawing.Size(518, 332)
+        Me.dgvComandas.TabIndex = 11
         '
         'btnGUUno
         '
@@ -913,7 +913,7 @@ Partial Class frmPaginaPrincipal
         Me.Controls.Add(Me.btnGUTres)
         Me.Controls.Add(Me.btnGUDos)
         Me.Controls.Add(Me.btnGUUno)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvComandas)
         Me.Controls.Add(Me.Guna2Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnGUApagar)
@@ -926,7 +926,7 @@ Partial Class frmPaginaPrincipal
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvComandas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -946,7 +946,7 @@ Partial Class frmPaginaPrincipal
     Friend WithEvents lblGUInfoEmpleado As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvComandas As DataGridView
     Friend WithEvents btnGUUno As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGUDos As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGUTres As Guna.UI2.WinForms.Guna2Button
