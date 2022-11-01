@@ -22,6 +22,7 @@ Partial Class frmPaginaPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim btnBorrarProducto As Guna.UI2.WinForms.Guna2Button
         Me.btnGUApagar = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -65,6 +66,8 @@ Partial Class frmPaginaPrincipal
         Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.tbMesaSeleccionada = New System.Windows.Forms.TextBox()
         Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.timerHoraActual = New System.Windows.Forms.Timer(Me.components)
+        Me.btnGUProductoDemo = New Guna.UI2.WinForms.Guna2Button()
         btnBorrarProducto = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -855,12 +858,38 @@ Partial Class frmPaginaPrincipal
         Me.Guna2HtmlLabel5.TabIndex = 34
         Me.Guna2HtmlLabel5.Text = "MESA SELECCIONADA:"
         '
+        'timerHoraActual
+        '
+        Me.timerHoraActual.Enabled = True
+        '
+        'btnGUProductoDemo
+        '
+        Me.btnGUProductoDemo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnGUProductoDemo.BackColor = System.Drawing.Color.Transparent
+        Me.btnGUProductoDemo.BorderRadius = 10
+        Me.btnGUProductoDemo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGUProductoDemo.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUProductoDemo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUProductoDemo.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnGUProductoDemo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGUProductoDemo.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnGUProductoDemo.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGUProductoDemo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnGUProductoDemo.Location = New System.Drawing.Point(923, 467)
+        Me.btnGUProductoDemo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGUProductoDemo.Name = "btnGUProductoDemo"
+        Me.btnGUProductoDemo.ShadowDecoration.BorderRadius = 20
+        Me.btnGUProductoDemo.Size = New System.Drawing.Size(186, 193)
+        Me.btnGUProductoDemo.TabIndex = 36
+        Me.btnGUProductoDemo.Text = "Producto Demo"
+        '
         'frmPaginaPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1295, 1007)
+        Me.Controls.Add(Me.btnGUProductoDemo)
         Me.Controls.Add(Me.tbMesaSeleccionada)
         Me.Controls.Add(Me.Guna2HtmlLabel5)
         Me.Controls.Add(Me.tbTotalAPagar)
@@ -947,4 +976,6 @@ Partial Class frmPaginaPrincipal
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents tbMesaSeleccionada As TextBox
     Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents timerHoraActual As Timer
+    Friend WithEvents btnGUProductoDemo As Guna.UI2.WinForms.Guna2Button
 End Class

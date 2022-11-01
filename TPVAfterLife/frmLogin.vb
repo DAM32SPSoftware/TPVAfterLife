@@ -29,7 +29,8 @@ Public Class frmLogin
             If usuario = usuariologin("Usuario") And contrasenia = usuariologin("Contraseña") Then
                 Me.Visible = False
                 Me.Close()
-                frmPaginaPrincipal.ShowDialog()
+                Dim PagPrincipal As New frmPaginaPrincipal(usuariologin("IdEmpleado"))
+                PagPrincipal.ShowDialog()
             Else
                 Dim mensaje As New frmMensaje("Usuario o contraseña incorrectos o no son válidos", True)
                 mensaje.ShowDialog()
