@@ -9,11 +9,17 @@
         Dim miDataRowEmpleados() As DataRow
         Dim dataEmpleado As DataRow
 
-        tbArticulo.Text = "Sin datos"
-        tbPrecioTotal.Text = "Sin datos"
-        tbTotalAPagar.Text = "Sin datos"
-        tbMesaSeleccionada.Text = "Sin datos"
-        tbUnidades.Text = "Sin datos"
+        'tbArticulo.Text = "Sin datos"
+        'tbPrecioTotal.Text = "Sin datos"
+        'tbTotalAPagar.Text = "Sin datos"
+        'tbMesaSeleccionada.Text = "Sin datos"
+        'tbUnidades.Text = "Sin datos"
+
+        tbArticulo.Text = ""
+        tbPrecioTotal.Text = ""
+        tbTotalAPagar.Text = ""
+        tbMesaSeleccionada.Text = ""
+        tbUnidades.Text = ""
 
         Try
             conexion.Conectar()

@@ -17,13 +17,13 @@ Public Class frmLogin
         Dim miDataRowCuentasEmpleados() As DataRow
         Dim usuariologin As DataRow
 
-        Dim usuario = tbUsuario.Text.ToLower()
-        Dim contrasenia = tbContrasenia.Text.ToLower()
+        Dim usuario = tbUsuario.Text.ToLower().Trim()
+        Dim contrasenia = tbContrasenia.Text.ToLower().Trim()
 
         Try
             conexion.Conectar()
             miTablaCuentasEmpleados = conexion._miDataSet.Tables("CuentasEmpleados")
-            miDataRowCuentasEmpleados = miTablaCuentasEmpleados.Select("Usuario = '" & usuario & "' AND Contraseña = '" & contrasenia & "'")
+            miDataRowCuentasEmpleados = miTablaCuentasEmpleados.Select("Usuario = '" & usuario & "' AND Contraseña = '" & contrasenia & "' AND Borrado = False")
             usuariologin = miDataRowCuentasEmpleados(0)
 
             If usuario = usuariologin("Usuario") And contrasenia = usuariologin("Contraseña") Then

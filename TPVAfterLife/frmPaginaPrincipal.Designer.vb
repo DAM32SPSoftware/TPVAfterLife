@@ -239,11 +239,11 @@ Partial Class frmPaginaPrincipal
         Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.Guna2Button1.Location = New System.Drawing.Point(297, 664)
+        Me.Guna2Button1.Location = New System.Drawing.Point(297, 734)
         Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.ShadowDecoration.BorderRadius = 20
-        Me.Guna2Button1.Size = New System.Drawing.Size(249, 248)
+        Me.Guna2Button1.Size = New System.Drawing.Size(249, 178)
         Me.Guna2Button1.TabIndex = 9
         Me.Guna2Button1.Text = "Cobrar"
         '
@@ -266,7 +266,7 @@ Partial Class frmPaginaPrincipal
         Me.DataGridView1.Location = New System.Drawing.Point(28, 106)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 25
-        Me.DataGridView1.Size = New System.Drawing.Size(518, 277)
+        Me.DataGridView1.Size = New System.Drawing.Size(518, 332)
         Me.DataGridView1.TabIndex = 11
         '
         'btnGUUno
@@ -285,11 +285,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUUno.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUUno.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUUno.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUUno.Location = New System.Drawing.Point(28, 580)
+        Me.btnGUUno.Location = New System.Drawing.Point(28, 644)
         Me.btnGUUno.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUUno.Name = "btnGUUno"
         Me.btnGUUno.ShadowDecoration.BorderRadius = 20
-        Me.btnGUUno.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUUno.Size = New System.Drawing.Size(80, 64)
         Me.btnGUUno.TabIndex = 12
         Me.btnGUUno.Text = "1"
         '
@@ -310,11 +310,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUDos.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUDos.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUDos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUDos.Location = New System.Drawing.Point(112, 580)
+        Me.btnGUDos.Location = New System.Drawing.Point(112, 644)
         Me.btnGUDos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUDos.Name = "btnGUDos"
         Me.btnGUDos.ShadowDecoration.BorderRadius = 20
-        Me.btnGUDos.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUDos.Size = New System.Drawing.Size(80, 64)
         Me.btnGUDos.TabIndex = 13
         Me.btnGUDos.Text = "2"
         '
@@ -334,11 +334,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUTres.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUTres.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUTres.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUTres.Location = New System.Drawing.Point(197, 580)
+        Me.btnGUTres.Location = New System.Drawing.Point(197, 644)
         Me.btnGUTres.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUTres.Name = "btnGUTres"
         Me.btnGUTres.ShadowDecoration.BorderRadius = 20
-        Me.btnGUTres.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUTres.Size = New System.Drawing.Size(80, 64)
         Me.btnGUTres.TabIndex = 14
         Me.btnGUTres.Text = "3"
         '
@@ -359,11 +359,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUSeis.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUSeis.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUSeis.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUSeis.Location = New System.Drawing.Point(196, 664)
+        Me.btnGUSeis.Location = New System.Drawing.Point(196, 712)
         Me.btnGUSeis.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUSeis.Name = "btnGUSeis"
         Me.btnGUSeis.ShadowDecoration.BorderRadius = 20
-        Me.btnGUSeis.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUSeis.Size = New System.Drawing.Size(80, 64)
         Me.btnGUSeis.TabIndex = 17
         Me.btnGUSeis.Text = "6"
         '
@@ -384,11 +384,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUCinco.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUCinco.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUCinco.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUCinco.Location = New System.Drawing.Point(112, 664)
+        Me.btnGUCinco.Location = New System.Drawing.Point(112, 712)
         Me.btnGUCinco.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUCinco.Name = "btnGUCinco"
         Me.btnGUCinco.ShadowDecoration.BorderRadius = 20
-        Me.btnGUCinco.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUCinco.Size = New System.Drawing.Size(80, 64)
         Me.btnGUCinco.TabIndex = 16
         Me.btnGUCinco.Text = "5"
         '
@@ -409,11 +409,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUCuatro.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUCuatro.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUCuatro.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUCuatro.Location = New System.Drawing.Point(28, 664)
+        Me.btnGUCuatro.Location = New System.Drawing.Point(28, 712)
         Me.btnGUCuatro.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUCuatro.Name = "btnGUCuatro"
         Me.btnGUCuatro.ShadowDecoration.BorderRadius = 20
-        Me.btnGUCuatro.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUCuatro.Size = New System.Drawing.Size(80, 64)
         Me.btnGUCuatro.TabIndex = 15
         Me.btnGUCuatro.Text = "4"
         '
@@ -434,11 +434,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUNueve.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUNueve.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUNueve.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUNueve.Location = New System.Drawing.Point(196, 748)
+        Me.btnGUNueve.Location = New System.Drawing.Point(196, 780)
         Me.btnGUNueve.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUNueve.Name = "btnGUNueve"
         Me.btnGUNueve.ShadowDecoration.BorderRadius = 20
-        Me.btnGUNueve.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUNueve.Size = New System.Drawing.Size(80, 64)
         Me.btnGUNueve.TabIndex = 20
         Me.btnGUNueve.Text = "9"
         '
@@ -459,11 +459,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUOcho.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUOcho.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUOcho.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUOcho.Location = New System.Drawing.Point(112, 748)
+        Me.btnGUOcho.Location = New System.Drawing.Point(112, 780)
         Me.btnGUOcho.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUOcho.Name = "btnGUOcho"
         Me.btnGUOcho.ShadowDecoration.BorderRadius = 20
-        Me.btnGUOcho.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUOcho.Size = New System.Drawing.Size(80, 64)
         Me.btnGUOcho.TabIndex = 19
         Me.btnGUOcho.Text = "8"
         '
@@ -484,11 +484,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUSiete.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUSiete.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUSiete.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUSiete.Location = New System.Drawing.Point(28, 748)
+        Me.btnGUSiete.Location = New System.Drawing.Point(28, 780)
         Me.btnGUSiete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUSiete.Name = "btnGUSiete"
         Me.btnGUSiete.ShadowDecoration.BorderRadius = 20
-        Me.btnGUSiete.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUSiete.Size = New System.Drawing.Size(80, 64)
         Me.btnGUSiete.TabIndex = 18
         Me.btnGUSiete.Text = "7"
         '
@@ -508,11 +508,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUCorregir.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUCorregir.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUCorregir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUCorregir.Location = New System.Drawing.Point(196, 832)
+        Me.btnGUCorregir.Location = New System.Drawing.Point(196, 848)
         Me.btnGUCorregir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUCorregir.Name = "btnGUCorregir"
         Me.btnGUCorregir.ShadowDecoration.BorderRadius = 20
-        Me.btnGUCorregir.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUCorregir.Size = New System.Drawing.Size(80, 64)
         Me.btnGUCorregir.TabIndex = 23
         Me.btnGUCorregir.Text = "C"
         '
@@ -533,11 +533,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUCero.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUCero.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUCero.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUCero.Location = New System.Drawing.Point(112, 832)
+        Me.btnGUCero.Location = New System.Drawing.Point(112, 848)
         Me.btnGUCero.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUCero.Name = "btnGUCero"
         Me.btnGUCero.ShadowDecoration.BorderRadius = 20
-        Me.btnGUCero.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUCero.Size = New System.Drawing.Size(80, 64)
         Me.btnGUCero.TabIndex = 22
         Me.btnGUCero.Text = "0"
         '
@@ -557,11 +557,11 @@ Partial Class frmPaginaPrincipal
         Me.btnGUOk.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGUOk.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGUOk.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUOk.Location = New System.Drawing.Point(28, 832)
+        Me.btnGUOk.Location = New System.Drawing.Point(28, 848)
         Me.btnGUOk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGUOk.Name = "btnGUOk"
         Me.btnGUOk.ShadowDecoration.BorderRadius = 20
-        Me.btnGUOk.Size = New System.Drawing.Size(80, 80)
+        Me.btnGUOk.Size = New System.Drawing.Size(80, 64)
         Me.btnGUOk.TabIndex = 21
         Me.btnGUOk.Text = "OK"
         '
@@ -578,7 +578,7 @@ Partial Class frmPaginaPrincipal
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel3)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel2)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(28, 446)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(28, 510)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(518, 114)
         Me.Guna2Panel1.TabIndex = 25
@@ -812,7 +812,7 @@ Partial Class frmPaginaPrincipal
         Me.tbTotalAPagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.tbTotalAPagar.Font = New System.Drawing.Font("Segoe UI", 19.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.tbTotalAPagar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.tbTotalAPagar.Location = New System.Drawing.Point(297, 611)
+        Me.tbTotalAPagar.Location = New System.Drawing.Point(297, 677)
         Me.tbTotalAPagar.MaxLength = 50
         Me.tbTotalAPagar.Name = "tbTotalAPagar"
         Me.tbTotalAPagar.ReadOnly = True
@@ -826,7 +826,7 @@ Partial Class frmPaginaPrincipal
         Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Guna2HtmlLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(297, 573)
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(297, 639)
         Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
         Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(174, 32)
         Me.Guna2HtmlLabel4.TabIndex = 14
@@ -838,7 +838,7 @@ Partial Class frmPaginaPrincipal
         Me.tbMesaSeleccionada.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.tbMesaSeleccionada.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.tbMesaSeleccionada.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.tbMesaSeleccionada.Location = New System.Drawing.Point(282, 396)
+        Me.tbMesaSeleccionada.Location = New System.Drawing.Point(282, 458)
         Me.tbMesaSeleccionada.MaxLength = 50
         Me.tbMesaSeleccionada.Name = "tbMesaSeleccionada"
         Me.tbMesaSeleccionada.ReadOnly = True
@@ -852,7 +852,7 @@ Partial Class frmPaginaPrincipal
         Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel5.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(47, 396)
+        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(47, 458)
         Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
         Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(229, 32)
         Me.Guna2HtmlLabel5.TabIndex = 34
