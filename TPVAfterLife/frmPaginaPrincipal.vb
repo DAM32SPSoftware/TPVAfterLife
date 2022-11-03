@@ -59,9 +59,27 @@
     End Sub
 
     Private Sub btnMesas_Click(sender As Object, e As EventArgs) Handles btnMesas.Click
+        Dim miTablaMesas As DataTable
+        Dim miDataRowMesas(), miDataRowComandas() As DataRow
+        Dim mesa, comandaAbierta As DataRow
+
         Dim selecMesas As frmSeleccionMesa = New frmSeleccionMesa
         If (selecMesas.ShowDialog() = DialogResult.OK) Then
             Dim codMesa As String = selecMesas.codMesa
+            Dim codEmpleado As String = selecMesas.codEmpleado
+
+            miTablaMesas = conexion._miDataSet.Tables("Mesas")
+            miDataRowMesas = miTablaMesas.Select("IdMesa = '" & codMesa & "' AND Borrado = False")
+            mesa = miDataRowMesas(0)
+
+            tbMesaSeleccionada.Text = mesa("Denominacion")
+
+            miDataRowComandas = mesa.GetChildRows("Comandas_Mesas")
+            For Each comanda As DataRow In miDataRowComandas
+                If comanda("FormaPago") Is DBNull.Value Then
+                    comandaAbierta = comanda
+                End If
+            Next
 
         Else
             Return

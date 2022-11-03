@@ -50,16 +50,16 @@ Public Class Conexion
             miDataAdapterArticulos.Fill(miDataSet, "Articulos")
             miDataAdapterCategorias.Fill(miDataSet, "Categorias")
 
-            miDataAdapterCuentasEmpleados = Nothing
-            miDataAdapterEmpleados = Nothing
-            miDataAdapterTipoEmpleado = Nothing
-            miDataAdapterMesas = Nothing
+            'miDataAdapterCuentasEmpleados = Nothing
+            'miDataAdapterEmpleados = Nothing
+            'miDataAdapterTipoEmpleado = Nothing
+            'miDataAdapterMesas = Nothing
             'miDataAdapterComandas = Nothing
-            miDataAdapterFacturas = Nothing
-            miDataAdapterCajas = Nothing
-            miDataAdapterLineaComandas = Nothing
-            miDataAdapterArticulos = Nothing
-            miDataAdapterCategorias = Nothing
+            'miDataAdapterFacturas = Nothing
+            'miDataAdapterCajas = Nothing
+            'miDataAdapterLineaComandas = Nothing
+            'miDataAdapterArticulos = Nothing
+            'miDataAdapterCategorias = Nothing
 
             miConexion.Close()
 
@@ -76,18 +76,18 @@ Public Class Conexion
                         miDataSet.Tables("Mesas").Columns("IdMesa"),
                         miDataSet.Tables("Comandas").Columns("IdMesa"))
             miDataSet.Relations.Add("Facturas_Cajas",
-                        miDataSet.Tables("Cajas").Columns("IdCaja"),
-                        miDataSet.Tables("Facturas").Columns("IdCaja"))
+                        miDataSet.Tables("facturas").Columns("idcaja"),
+                        miDataSet.Tables("cajas").Columns("idcaja"))
             miDataSet.Relations.Add("Comandas_Facturas",
                         miDataSet.Tables("Facturas").Columns("IdFactura"),
                         miDataSet.Tables("Comandas").Columns("IdFactura"))
             miDataSet.Relations.Add("Articulos_Categorias",
-                        miDataSet.Tables("Categorias").Columns("IdCategoria"),
-                        miDataSet.Tables("Articulos").Columns("IdCategoria"))
+                        miDataSet.Tables("Articulos").Columns("IdCategoria"),
+                        miDataSet.Tables("Categorias").Columns("IdCategoria"))
             miDataSet.Relations.Add("LineaComandas_Articulos",
-                        miDataSet.Tables("Articulos").Columns("IdArticulo"),
-                        miDataSet.Tables("LineaComandas").Columns("IdArticulo"))
-            miDataSet.Relations.Add("LineaComndas_Comandas",
+                        miDataSet.Tables("LineaComandas").Columns("IdArticulo"),
+                        miDataSet.Tables("Articulos").Columns("IdArticulo"))
+            miDataSet.Relations.Add("LineaComandas_Comandas",
                         miDataSet.Tables("Comandas").Columns("IdComanda"),
                         miDataSet.Tables("LineaComandas").Columns("IdComanda"))
             miDataSet.Relations.Add("Comandas_Empleados",
@@ -101,17 +101,18 @@ Public Class Conexion
             Exit Sub
         End Try
     End Sub
+
     Public Sub ActualizarDB()
-        'miDataAdapterCuentasEmpleados.Update(miDataSet, "CuentasEmpleados")
-        'miDataAdapterEmpleados.Update(miDataSet, "Empleados")
-        'miDataAdapterTipoEmpleado.Update(miDataSet, "TipoEmpleado")
-        'miDataAdapterMesas.Update(miDataSet, "Mesas")
+        miDataAdapterCuentasEmpleados.Update(miDataSet, "CuentasEmpleados")
+        miDataAdapterEmpleados.Update(miDataSet, "Empleados")
+        miDataAdapterTipoEmpleado.Update(miDataSet, "TipoEmpleado")
+        miDataAdapterMesas.Update(miDataSet, "Mesas")
         miDataAdapterComandas.Update(miDataSet, "Comandas")
-        'miDataAdapterFacturas.Update(miDataSet, "Facturas")
-        'miDataAdapterCajas.Update(miDataSet, "Cajas")
-        'miDataAdapterLineaComandas.Update(miDataSet, "LineaComandas")
-        'miDataAdapterArticulos.Update(miDataSet, "Articulos")
-        'miDataAdapterCategorias.Update(miDataSet, "Categorias")
+        miDataAdapterFacturas.Update(miDataSet, "Facturas")
+        miDataAdapterCajas.Update(miDataSet, "Cajas")
+        miDataAdapterLineaComandas.Update(miDataSet, "LineaComandas")
+        miDataAdapterArticulos.Update(miDataSet, "Articulos")
+        miDataAdapterCategorias.Update(miDataSet, "Categorias")
     End Sub
 
     Public Property _miDataSet As DataSet
