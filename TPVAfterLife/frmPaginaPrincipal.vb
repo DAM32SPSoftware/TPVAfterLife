@@ -2,6 +2,11 @@
 
     Public conexion As New Conexion
 
+    Private codMesa As String
+    Private codEmpleado As String
+
+    Private comandaAbierta As DataRow
+
     Public Sub New(idEmpleado As String)
         InitializeComponent()
 
@@ -59,31 +64,98 @@
     End Sub
 
     Private Sub btnMesas_Click(sender As Object, e As EventArgs) Handles btnMesas.Click
-        Dim miTablaMesas As DataTable
-        Dim miDataRowMesas(), miDataRowComandas() As DataRow
-        Dim mesa, comandaAbierta As DataRow
+        Dim miTablaMesas, miTablaArticulosDeComanda, miTablaArticulos, miTablaCategorias As DataTable
+        Dim miDataRowMesas(), miDataRowComandas(), miDataRowArticulosEnLineaComandas() As DataRow
+        Dim mesa As DataRow
 
         Dim selecMesas As frmSeleccionMesa = New frmSeleccionMesa
         If (selecMesas.ShowDialog() = DialogResult.OK) Then
-            Dim codMesa As String = selecMesas.codMesa
-            Dim codEmpleado As String = selecMesas.codEmpleado
+            Me.codMesa = selecMesas.codMesa
+            Me.codEmpleado = selecMesas.codEmpleado
 
             miTablaMesas = conexion._miDataSet.Tables("Mesas")
-            miDataRowMesas = miTablaMesas.Select("IdMesa = '" & codMesa & "' AND Borrado = False")
+            miDataRowMesas = miTablaMesas.Select("IdMesa = '" & Me.codMesa & "' AND Borrado = False")
             mesa = miDataRowMesas(0)
 
             tbMesaSeleccionada.Text = mesa("Denominacion")
 
             miDataRowComandas = mesa.GetChildRows("Comandas_Mesas")
             For Each comanda As DataRow In miDataRowComandas
-                If comanda("FormaPago") Is DBNull.Value Then
-                    comandaAbierta = comanda
+                If comanda("FormaPago") Is DBNull.Value And comanda("Borrado") = False Then
+                    Me.comandaAbierta = comanda
                 End If
             Next
 
+            miTablaArticulos = conexion._miDataSet.Tables("Articulos")
+            miTablaCategorias = conexion._miDataSet.Tables("Categorias")
+
+            miTablaArticulosDeComanda = New DataTable
+            miTablaArticulosDeComanda.Columns.Add("Nombre", GetType(String))
+            miTablaArticulosDeComanda.Columns.Add("Cantidad", GetType(Integer))
+            miTablaArticulosDeComanda.Columns.Add("Precio", GetType(Double))
+            miTablaArticulosDeComanda.Columns.Add("Categoria", GetType(String))
+
+            If Me.comandaAbierta IsNot Nothing Then
+                miDataRowArticulosEnLineaComandas = Me.comandaAbierta.GetChildRows("LineaComandas_Comandas")
+
+                For Each articulo As DataRow In miDataRowArticulosEnLineaComandas
+                    Dim miDataRowInfoArticulo() As DataRow = miTablaArticulos.Select("IdArticulo = '" & articulo("IdArticulo") & "' AND Borrado = False")
+                    Dim infoArticulo = miDataRowInfoArticulo(0)
+                    Dim miDataRowCategorias() As DataRow = miTablaCategorias.Select("IdCategoria = '" & infoArticulo("IdCategoria") & "' AND Borrado = False")
+                    Dim infoCategoria = miDataRowCategorias(0)
+
+                    miTablaArticulosDeComanda.Rows.Add(infoArticulo("Nombre"), articulo("Cantidad"), infoArticulo("Precio"), infoCategoria("NombreCategoria"))
+                Next
+            End If
+
+            dgvComandas.DataSource = ""
+            dgvComandas.DataSource = miTablaArticulosDeComanda
         Else
             Return
         End If
+
+    End Sub
+
+    Private Sub btnBorrarComanda_Click(sender As Object, e As EventArgs) Handles btnBorrarComanda.Click
+        If Me.comandaAbierta Is Nothing Then
+            Dim mensaje As New frmMensaje("No hay ninguna comanda seleccionada", False)
+            mensaje.ShowDialog()
+        Else
+            Dim confirma As frmConfirmacion = New frmConfirmacion("¿Seguro que desea borrar la comanda?")
+            If confirma.ShowDialog() = Windows.Forms.DialogResult.OK Then
+
+                Dim miTablaMesas As DataTable
+                Dim miDataRowMesas() As DataRow
+                Dim mesa As DataRow
+
+                Me.comandaAbierta("Borrado") = True
+
+                miTablaMesas = conexion._miDataSet.Tables("Mesas")
+                miDataRowMesas = miTablaMesas.Select("IdMesa = '" & Me.codMesa & "' AND Borrado = False")
+                mesa = miDataRowMesas(0)
+
+                mesa("Estado") = "Libre"
+
+                tbMesaSeleccionada.Text = ""
+                dgvComandas.DataSource = ""
+
+                conexion.miDataAdapterMesas.Update(conexion._miDataSet, "Mesas")
+                conexion.miDataAdapterComandas.Update(conexion._miDataSet, "Comandas")
+
+                Dim mensaje As New frmMensaje("Se ha eliminado la comanda", False)
+                mensaje.ShowDialog()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub dgvComandas_SelectionChanged(sender As Object, e As EventArgs) Handles dgvComandas.SelectionChanged
+        tbUnidades.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Cantidad").Value.ToString()
+        tbArticulo.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Nombre").Value.ToString()
+        tbPrecioTotal.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Precio").Value.ToString() * dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Cantidad").Value.ToString()
+    End Sub
+
+    Private Sub btnBorrarProducto_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class

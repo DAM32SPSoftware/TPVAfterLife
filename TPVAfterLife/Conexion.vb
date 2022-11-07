@@ -82,11 +82,11 @@ Public Class Conexion
                         miDataSet.Tables("Facturas").Columns("IdFactura"),
                         miDataSet.Tables("Comandas").Columns("IdFactura"))
             miDataSet.Relations.Add("Articulos_Categorias",
-                        miDataSet.Tables("Articulos").Columns("IdCategoria"),
-                        miDataSet.Tables("Categorias").Columns("IdCategoria"))
+                        miDataSet.Tables("Categorias").Columns("IdCategoria"),
+                        miDataSet.Tables("Articulos").Columns("IdCategoria"))
             miDataSet.Relations.Add("LineaComandas_Articulos",
-                        miDataSet.Tables("LineaComandas").Columns("IdArticulo"),
-                        miDataSet.Tables("Articulos").Columns("IdArticulo"))
+                        miDataSet.Tables("Articulos").Columns("IdArticulo"),
+                        miDataSet.Tables("LineaComandas").Columns("IdArticulo"))
             miDataSet.Relations.Add("LineaComandas_Comandas",
                         miDataSet.Tables("Comandas").Columns("IdComanda"),
                         miDataSet.Tables("LineaComandas").Columns("IdComanda"))

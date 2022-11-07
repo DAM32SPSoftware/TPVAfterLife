@@ -116,6 +116,7 @@ Public Class frmSeleccionMesa
             Me.codMesa = mesa("IdMesa")
             Me.codEmpleado = empleado("IdEmpleado")
             Me.DialogResult = Windows.Forms.DialogResult.OK
+
         ElseIf mesa("Estado") = "Ocupada" Then
             miDataRowComandas = mesa.GetChildRows("Comandas_Mesas")
             For Each comanda As DataRow In miDataRowComandas
