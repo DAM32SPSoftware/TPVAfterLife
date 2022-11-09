@@ -67,6 +67,7 @@
         Dim miTablaMesas, miTablaArticulosDeComanda, miTablaArticulos, miTablaCategorias As DataTable
         Dim miDataRowMesas(), miDataRowComandas(), miDataRowArticulosEnLineaComandas() As DataRow
         Dim mesa As DataRow
+        Dim precioTotal As Double
 
         Dim selecMesas As frmSeleccionMesa = New frmSeleccionMesa
         If (selecMesas.ShowDialog() = DialogResult.OK) Then
@@ -76,8 +77,6 @@
             miTablaMesas = conexion._miDataSet.Tables("Mesas")
             miDataRowMesas = miTablaMesas.Select("IdMesa = '" & Me.codMesa & "' AND Borrado = False")
             mesa = miDataRowMesas(0)
-
-            tbMesaSeleccionada.Text = mesa("Denominacion")
 
             miDataRowComandas = mesa.GetChildRows("Comandas_Mesas")
             For Each comanda As DataRow In miDataRowComandas
@@ -90,6 +89,7 @@
             miTablaCategorias = conexion._miDataSet.Tables("Categorias")
 
             miTablaArticulosDeComanda = New DataTable
+            miTablaArticulosDeComanda.Columns.Add("IdArticulo", GetType(Integer))
             miTablaArticulosDeComanda.Columns.Add("Nombre", GetType(String))
             miTablaArticulosDeComanda.Columns.Add("Cantidad", GetType(Integer))
             miTablaArticulosDeComanda.Columns.Add("Precio", GetType(Double))
@@ -104,12 +104,23 @@
                     Dim miDataRowCategorias() As DataRow = miTablaCategorias.Select("IdCategoria = '" & infoArticulo("IdCategoria") & "' AND Borrado = False")
                     Dim infoCategoria = miDataRowCategorias(0)
 
-                    miTablaArticulosDeComanda.Rows.Add(infoArticulo("Nombre"), articulo("Cantidad"), infoArticulo("Precio"), infoCategoria("NombreCategoria"))
+                    miTablaArticulosDeComanda.Rows.Add(infoArticulo("IdArticulo"), infoArticulo("Nombre"), articulo("Cantidad"), infoArticulo("Precio"), infoCategoria("NombreCategoria"))
+
+                    precioTotal = precioTotal + (articulo("Cantidad") * infoArticulo("Precio"))
                 Next
             End If
 
+            tbMesaSeleccionada.Text = ""
+            tbUnidades.Text = ""
+            tbArticulo.Text = ""
+            tbPrecioTotal.Text = ""
+            tbTotalAPagar.Text = ""
             dgvComandas.DataSource = ""
+
             dgvComandas.DataSource = miTablaArticulosDeComanda
+            dgvComandas.Columns("IdArticulo").Visible = False
+            tbMesaSeleccionada.Text = mesa("Denominacion")
+            tbTotalAPagar.Text = precioTotal
         Else
             Return
         End If
@@ -137,6 +148,10 @@
                 mesa("Estado") = "Libre"
 
                 tbMesaSeleccionada.Text = ""
+                tbUnidades.Text = ""
+                tbArticulo.Text = ""
+                tbPrecioTotal.Text = ""
+                tbTotalAPagar.Text = ""
                 dgvComandas.DataSource = ""
 
                 conexion.miDataAdapterMesas.Update(conexion._miDataSet, "Mesas")
@@ -150,9 +165,12 @@
     End Sub
 
     Private Sub dgvComandas_SelectionChanged(sender As Object, e As EventArgs) Handles dgvComandas.SelectionChanged
-        tbUnidades.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Cantidad").Value.ToString()
-        tbArticulo.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Nombre").Value.ToString()
-        tbPrecioTotal.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Precio").Value.ToString() * dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Cantidad").Value.ToString()
+        If dgvComandas.CurrentCell IsNot Nothing Then
+            tbUnidades.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Cantidad").Value.ToString()
+            tbArticulo.Text = dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Nombre").Value.ToString()
+            Dim valor As Double = Math.Round(dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Precio").Value.ToString() * dgvComandas.Rows(dgvComandas.CurrentCell.RowIndex).Cells("Cantidad").Value.ToString(), 2)
+            tbPrecioTotal.Text = valor
+        End If
     End Sub
 
     Private Sub btnBorrarProducto_Click(sender As Object, e As EventArgs)
