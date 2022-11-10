@@ -29,7 +29,7 @@
         Try
             conexion.Conectar()
             miTablaEmpleados = conexion._miDataSet.Tables("Empleados")
-            miDataRowEmpleados = miTablaEmpleados.Select("IdEmpleado = '" & idEmpleado & "'")
+            miDataRowEmpleados = miTablaEmpleados.Select("IdEmpleado = '" & idEmpleado & "' AND Borrado = False")
             dataEmpleado = miDataRowEmpleados(0)
             lblGUEmpleado.Text = dataEmpleado("Nombre") + " " + dataEmpleado("Apellido")
         Catch ex As Exception
@@ -175,5 +175,9 @@
 
     Private Sub btnBorrarProducto_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub btnGestionArticulos_Click(sender As Object, e As EventArgs) Handles btnGestionArticulos.Click
+        frmArticulosCRUD.ShowDialog()
     End Sub
 End Class
