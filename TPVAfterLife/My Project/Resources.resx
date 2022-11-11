@@ -124,9 +124,6 @@
   <data name="denegar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Imagenes\Denegar\denegar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pregunta(crema)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\Imagenes\Pregunta\pregunta(crema).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Imagenes\Aprobar\check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,8 +139,8 @@
   <data name="warning2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Imagenes\Warning\warning2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SpLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\Imagenes\Logos\SpLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pregunta(crema)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Imagenes\Pregunta\pregunta(crema).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Imagenes\Warning\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,13 +148,19 @@
   <data name="info(crema)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Imagenes\Info\info(crema).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="warning3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Imagenes\Warning\warning3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoletrerosombra" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Imagenes\Logos\logoletrerosombra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Imagenes\Logos\SpLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LogoLetrero" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Imagenes\Logos\LogoLetrero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="warning3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\Imagenes\Warning\warning3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NotFoundIMG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Imagenes\NotFound\NotFoundIMG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
