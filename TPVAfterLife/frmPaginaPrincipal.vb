@@ -1,10 +1,14 @@
 ﻿Public Class frmPaginaPrincipal
 
+    'TO_DO
+
+    'SE TIENEN QUE REINICIAR LOS DATOS DEL ARTICULO SELECCIONADO AL CAMBIAR DE COMANDA
+    'ADMINISTRAR ARTICULOS SOLO SI ERES ADMIN
+
     Public conexion As New Conexion
 
     Private codMesa As String
     Private codEmpleado As String
-
     Private comandaAbierta As DataRow
 
     Public Sub New(idEmpleado As String)
@@ -13,12 +17,6 @@
         Dim miTablaEmpleados As DataTable
         Dim miDataRowEmpleados() As DataRow
         Dim dataEmpleado As DataRow
-
-        'tbArticulo.Text = "Sin datos"
-        'tbPrecioTotal.Text = "Sin datos"
-        'tbTotalAPagar.Text = "Sin datos"
-        'tbMesaSeleccionada.Text = "Sin datos"
-        'tbUnidades.Text = "Sin datos"
 
         tbArticulo.Text = ""
         tbPrecioTotal.Text = ""

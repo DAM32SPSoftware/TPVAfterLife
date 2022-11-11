@@ -30,15 +30,18 @@ Partial Class frmAniadirArticulo
         Me.cbGUCategoriasID = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.cbGUCategoriasNombre = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.lblGUCategoria = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.tbImagen = New System.Windows.Forms.TextBox()
-        Me.lblGUImagen = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.tbStock = New System.Windows.Forms.TextBox()
         Me.lblGUStock = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.tbPrecio = New System.Windows.Forms.TextBox()
         Me.lblGUPrecio = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.tbNombre = New System.Windows.Forms.TextBox()
         Me.lblGUNombre = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblGUImagen = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.btnGUEliminarIMG = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnGUAniadirImagen = New Guna.UI2.WinForms.Guna2Button()
+        Me.pbGUImagenAux = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.pbGUImagenAux, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -166,33 +169,6 @@ Partial Class frmAniadirArticulo
         Me.lblGUCategoria.Text = "Categoria:"
         Me.lblGUCategoria.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'tbImagen
-        '
-        Me.tbImagen.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.tbImagen.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.tbImagen.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.tbImagen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.tbImagen.Location = New System.Drawing.Point(125, 506)
-        Me.tbImagen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.tbImagen.MaxLength = 20
-        Me.tbImagen.Name = "tbImagen"
-        Me.tbImagen.PlaceholderText = "Introduzca la imagen???"
-        Me.tbImagen.Size = New System.Drawing.Size(414, 39)
-        Me.tbImagen.TabIndex = 64
-        '
-        'lblGUImagen
-        '
-        Me.lblGUImagen.BackColor = System.Drawing.Color.Transparent
-        Me.lblGUImagen.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.lblGUImagen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.lblGUImagen.Location = New System.Drawing.Point(125, 470)
-        Me.lblGUImagen.Name = "lblGUImagen"
-        Me.lblGUImagen.Size = New System.Drawing.Size(72, 30)
-        Me.lblGUImagen.TabIndex = 63
-        Me.lblGUImagen.TabStop = False
-        Me.lblGUImagen.Text = "Imagen:"
-        Me.lblGUImagen.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'tbStock
         '
         Me.tbStock.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -272,17 +248,88 @@ Partial Class frmAniadirArticulo
         Me.lblGUNombre.TabStop = False
         Me.lblGUNombre.Text = "Nombre:"
         '
+        'lblGUImagen
+        '
+        Me.lblGUImagen.BackColor = System.Drawing.Color.Transparent
+        Me.lblGUImagen.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblGUImagen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.lblGUImagen.Location = New System.Drawing.Point(125, 470)
+        Me.lblGUImagen.Name = "lblGUImagen"
+        Me.lblGUImagen.Size = New System.Drawing.Size(72, 30)
+        Me.lblGUImagen.TabIndex = 70
+        Me.lblGUImagen.Text = "Imagen:"
+        Me.lblGUImagen.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnGUEliminarIMG
+        '
+        Me.btnGUEliminarIMG.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnGUEliminarIMG.BackColor = System.Drawing.Color.Transparent
+        Me.btnGUEliminarIMG.BorderRadius = 10
+        Me.btnGUEliminarIMG.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGUEliminarIMG.CustomizableEdges.BottomLeft = False
+        Me.btnGUEliminarIMG.CustomizableEdges.TopLeft = False
+        Me.btnGUEliminarIMG.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUEliminarIMG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUEliminarIMG.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnGUEliminarIMG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGUEliminarIMG.Enabled = False
+        Me.btnGUEliminarIMG.FillColor = System.Drawing.Color.OrangeRed
+        Me.btnGUEliminarIMG.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGUEliminarIMG.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnGUEliminarIMG.Location = New System.Drawing.Point(490, 505)
+        Me.btnGUEliminarIMG.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGUEliminarIMG.Name = "btnGUEliminarIMG"
+        Me.btnGUEliminarIMG.ShadowDecoration.BorderRadius = 20
+        Me.btnGUEliminarIMG.Size = New System.Drawing.Size(49, 46)
+        Me.btnGUEliminarIMG.TabIndex = 69
+        Me.btnGUEliminarIMG.Text = "X"
+        '
+        'btnGUAniadirImagen
+        '
+        Me.btnGUAniadirImagen.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnGUAniadirImagen.BackColor = System.Drawing.Color.Transparent
+        Me.btnGUAniadirImagen.BorderRadius = 10
+        Me.btnGUAniadirImagen.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGUAniadirImagen.CustomizableEdges.BottomRight = False
+        Me.btnGUAniadirImagen.CustomizableEdges.TopRight = False
+        Me.btnGUAniadirImagen.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUAniadirImagen.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUAniadirImagen.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnGUAniadirImagen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGUAniadirImagen.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnGUAniadirImagen.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGUAniadirImagen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnGUAniadirImagen.Location = New System.Drawing.Point(125, 505)
+        Me.btnGUAniadirImagen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGUAniadirImagen.Name = "btnGUAniadirImagen"
+        Me.btnGUAniadirImagen.ShadowDecoration.BorderRadius = 20
+        Me.btnGUAniadirImagen.Size = New System.Drawing.Size(359, 46)
+        Me.btnGUAniadirImagen.TabIndex = 68
+        Me.btnGUAniadirImagen.Text = "Añadir imagen"
+        '
+        'pbGUImagenAux
+        '
+        Me.pbGUImagenAux.ImageRotate = 0!
+        Me.pbGUImagenAux.Location = New System.Drawing.Point(25, 131)
+        Me.pbGUImagenAux.Name = "pbGUImagenAux"
+        Me.pbGUImagenAux.Size = New System.Drawing.Size(71, 87)
+        Me.pbGUImagenAux.TabIndex = 71
+        Me.pbGUImagenAux.TabStop = False
+        Me.pbGUImagenAux.Visible = False
+        '
         'frmAniadirArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(650, 740)
+        Me.Controls.Add(Me.pbGUImagenAux)
+        Me.Controls.Add(Me.lblGUImagen)
+        Me.Controls.Add(Me.btnGUEliminarIMG)
+        Me.Controls.Add(Me.btnGUAniadirImagen)
         Me.Controls.Add(Me.cbGUCategoriasID)
         Me.Controls.Add(Me.cbGUCategoriasNombre)
         Me.Controls.Add(Me.lblGUCategoria)
-        Me.Controls.Add(Me.tbImagen)
-        Me.Controls.Add(Me.lblGUImagen)
         Me.Controls.Add(Me.tbStock)
         Me.Controls.Add(Me.lblGUStock)
         Me.Controls.Add(Me.tbPrecio)
@@ -301,6 +348,7 @@ Partial Class frmAniadirArticulo
         Me.Text = "TPV Bar AfterLife"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.pbGUImagenAux, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -313,12 +361,14 @@ Partial Class frmAniadirArticulo
     Friend WithEvents cbGUCategoriasID As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents cbGUCategoriasNombre As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents lblGUCategoria As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents tbImagen As TextBox
-    Friend WithEvents lblGUImagen As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents tbStock As TextBox
     Friend WithEvents lblGUStock As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents tbPrecio As TextBox
     Friend WithEvents lblGUPrecio As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents tbNombre As TextBox
     Friend WithEvents lblGUNombre As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblGUImagen As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents btnGUEliminarIMG As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnGUAniadirImagen As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents pbGUImagenAux As Guna.UI2.WinForms.Guna2PictureBox
 End Class

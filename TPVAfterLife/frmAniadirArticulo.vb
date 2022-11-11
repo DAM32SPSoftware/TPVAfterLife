@@ -1,6 +1,9 @@
-﻿Public Class frmAniadirArticulo
+﻿Imports System.IO
+
+Public Class frmAniadirArticulo
 
     Public conexion As New Conexion
+    Dim imgRecogida() As Byte = {0}
 
     Private Sub frmAniadirArticulo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim miTablaCategorias As DataTable
@@ -41,9 +44,6 @@
                 Me.DialogResult = Windows.Forms.DialogResult.OK
             End If
         End If
-
-        'COMPROBAR ESTO BC NO SE SI VA BIEN DEL TODO
-
     End Sub
 
     Private Sub cbGUCategoriasNombre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbGUCategoriasNombre.SelectedIndexChanged
@@ -80,8 +80,12 @@
         miNuevoDataRowArticulos("Precio") = precio
         miNuevoDataRowArticulos("Stock") = stock
         miNuevoDataRowArticulos("Borrado") = False
-        miNuevoDataRowArticulos("Imagen") = DBNull.Value
         miNuevoDataRowArticulos("IdCategoria") = cbGUCategoriasID.SelectedItem()
+        If imgRecogida(0) = 0 Then
+            miNuevoDataRowArticulos("imagen") = DBNull.Value
+        Else
+            miNuevoDataRowArticulos("imagen") = imgRecogida
+        End If
 
         Dim confirma As frmConfirmacion = New frmConfirmacion("¿Desea añadir el articulo '" + miNuevoDataRowArticulos("Nombre") + "'?")
         If confirma.ShowDialog() = Windows.Forms.DialogResult.OK Then
@@ -92,6 +96,32 @@
             Me.limpiarCampos()
         End If
 
+    End Sub
+
+    Private Sub btnGUAniadirImagen_Click(sender As Object, e As EventArgs) Handles btnGUAniadirImagen.Click
+        Dim opf As New OpenFileDialog
+        Dim ms As New MemoryStream
+
+        opf.Filter = "Choose Image(*.JPG;*.PNG;*.GIF)|*.jpg;*.png;*.gif"
+
+        If opf.ShowDialog = DialogResult.OK Then
+            pbGUImagenAux.Image = Image.FromFile(opf.FileName)
+            pbGUImagenAux.Image.Save(ms, pbGUImagenAux.Image.RawFormat)
+            imgRecogida = ms.ToArray()
+            Dim filename As String = opf.FileName
+            filename = filename.Substring(filename.LastIndexOf("\") + 1)
+            lblGUImagen.Text = "Imagen --> ( " + filename + " )"
+            btnGUEliminarIMG.Enabled = True
+            btnGUAniadirImagen.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub btnGUEliminarIMG_Click(sender As Object, e As EventArgs) Handles btnGUEliminarIMG.Click
+        lblGUImagen.Text = "Imagen:"
+        imgRecogida = {0}
+        btnGUAniadirImagen.Enabled = True
+        btnGUEliminarIMG.Enabled = False
     End Sub
 
     Private Function camposSinInformacion()
@@ -128,6 +158,10 @@
         tbStock.Text = ""
         cbGUCategoriasNombre.SelectedIndex() = -1
         cbGUCategoriasID.SelectedIndex() = -1
+        lblGUImagen.Text = "Imagen:"
+        imgRecogida = {0}
+        btnGUAniadirImagen.Enabled = True
+        btnGUEliminarIMG.Enabled = False
     End Sub
 
 End Class
