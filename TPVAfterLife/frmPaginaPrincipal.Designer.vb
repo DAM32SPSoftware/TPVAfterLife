@@ -51,7 +51,6 @@ Partial Class frmPaginaPrincipal
         Me.btnGUSiete = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGUCorregir = New Guna.UI2.WinForms.Guna2Button()
         Me.btnGUCero = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnGUOk = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.tbPrecioTotal = New System.Windows.Forms.TextBox()
         Me.tbArticulo = New System.Windows.Forms.TextBox()
@@ -71,6 +70,10 @@ Partial Class frmPaginaPrincipal
         Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.timerHoraActual = New System.Windows.Forms.Timer(Me.components)
         Me.btnGUProductoDemo = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tbEfectivo = New System.Windows.Forms.TextBox()
+        Me.Guna2HtmlLabel6 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.btnGUOk = New Guna.UI2.WinForms.Guna2Button()
         btnBorrarProducto = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -243,11 +246,11 @@ Partial Class frmPaginaPrincipal
         Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.Guna2Button1.Location = New System.Drawing.Point(297, 734)
+        Me.Guna2Button1.Location = New System.Drawing.Point(297, 822)
         Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.ShadowDecoration.BorderRadius = 20
-        Me.Guna2Button1.Size = New System.Drawing.Size(249, 178)
+        Me.Guna2Button1.Size = New System.Drawing.Size(249, 90)
         Me.Guna2Button1.TabIndex = 9
         Me.Guna2Button1.Text = "Cobrar"
         '
@@ -580,30 +583,6 @@ Partial Class frmPaginaPrincipal
         Me.btnGUCero.TabIndex = 22
         Me.btnGUCero.Text = "0"
         '
-        'btnGUOk
-        '
-        Me.btnGUOk.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnGUOk.BackColor = System.Drawing.Color.Transparent
-        Me.btnGUOk.BorderRadius = 10
-        Me.btnGUOk.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGUOk.CustomizableEdges.BottomRight = False
-        Me.btnGUOk.CustomizableEdges.TopLeft = False
-        Me.btnGUOk.CustomizableEdges.TopRight = False
-        Me.btnGUOk.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnGUOk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnGUOk.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnGUOk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnGUOk.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.btnGUOk.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.btnGUOk.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.btnGUOk.Location = New System.Drawing.Point(28, 848)
-        Me.btnGUOk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnGUOk.Name = "btnGUOk"
-        Me.btnGUOk.ShadowDecoration.BorderRadius = 20
-        Me.btnGUOk.Size = New System.Drawing.Size(80, 64)
-        Me.btnGUOk.TabIndex = 21
-        Me.btnGUOk.Text = "OK"
-        '
         'Guna2Panel1
         '
         Me.Guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -749,7 +728,7 @@ Partial Class frmPaginaPrincipal
         Me.btnUltimaComanda.ShadowDecoration.BorderRadius = 20
         Me.btnUltimaComanda.Size = New System.Drawing.Size(97, 80)
         Me.btnUltimaComanda.TabIndex = 28
-        Me.btnUltimaComanda.Text = "Ultima Comanda"
+        Me.btnUltimaComanda.Text = "Caja Diaria"
         '
         'btnBorrarComanda
         '
@@ -811,6 +790,7 @@ Partial Class frmPaginaPrincipal
         Me.btnGestionArticulos.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnGestionArticulos.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnGestionArticulos.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGestionArticulos.Enabled = False
         Me.btnGestionArticulos.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGestionArticulos.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGestionArticulos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
@@ -834,6 +814,7 @@ Partial Class frmPaginaPrincipal
         Me.btnGestionEmpleados.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnGestionEmpleados.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnGestionEmpleados.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGestionEmpleados.Enabled = False
         Me.btnGestionEmpleados.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.btnGestionEmpleados.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.btnGestionEmpleados.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
@@ -857,7 +838,6 @@ Partial Class frmPaginaPrincipal
         Me.tbTotalAPagar.ReadOnly = True
         Me.tbTotalAPagar.Size = New System.Drawing.Size(249, 41)
         Me.tbTotalAPagar.TabIndex = 15
-        Me.tbTotalAPagar.Text = "tbTotalAPagar"
         '
         'Guna2HtmlLabel4
         '
@@ -922,12 +902,71 @@ Partial Class frmPaginaPrincipal
         Me.btnGUProductoDemo.TabIndex = 36
         Me.btnGUProductoDemo.Text = "Producto Demo"
         '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(979, 24)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1043, 900)
+        Me.Panel2.TabIndex = 37
+        '
+        'tbEfectivo
+        '
+        Me.tbEfectivo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tbEfectivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.tbEfectivo.Font = New System.Drawing.Font("Segoe UI", 19.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.tbEfectivo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.tbEfectivo.Location = New System.Drawing.Point(297, 762)
+        Me.tbEfectivo.MaxLength = 50
+        Me.tbEfectivo.Name = "tbEfectivo"
+        Me.tbEfectivo.ReadOnly = True
+        Me.tbEfectivo.Size = New System.Drawing.Size(249, 41)
+        Me.tbEfectivo.TabIndex = 39
+        '
+        'Guna2HtmlLabel6
+        '
+        Me.Guna2HtmlLabel6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel6.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Guna2HtmlLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.Guna2HtmlLabel6.Location = New System.Drawing.Point(297, 724)
+        Me.Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
+        Me.Guna2HtmlLabel6.Size = New System.Drawing.Size(104, 32)
+        Me.Guna2HtmlLabel6.TabIndex = 38
+        Me.Guna2HtmlLabel6.Text = "EFECTIVO:"
+        '
+        'btnGUOk
+        '
+        Me.btnGUOk.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnGUOk.BackColor = System.Drawing.Color.Transparent
+        Me.btnGUOk.BorderRadius = 10
+        Me.btnGUOk.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGUOk.CustomizableEdges.BottomRight = False
+        Me.btnGUOk.CustomizableEdges.TopLeft = False
+        Me.btnGUOk.CustomizableEdges.TopRight = False
+        Me.btnGUOk.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUOk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnGUOk.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnGUOk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnGUOk.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
+        Me.btnGUOk.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.btnGUOk.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.btnGUOk.Location = New System.Drawing.Point(28, 848)
+        Me.btnGUOk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGUOk.Name = "btnGUOk"
+        Me.btnGUOk.ShadowDecoration.BorderRadius = 20
+        Me.btnGUOk.Size = New System.Drawing.Size(80, 64)
+        Me.btnGUOk.TabIndex = 21
+        Me.btnGUOk.Text = "T"
+        '
         'frmPaginaPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1295, 1007)
+        Me.Controls.Add(Me.tbEfectivo)
+        Me.Controls.Add(Me.Guna2HtmlLabel6)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnGUProductoDemo)
         Me.Controls.Add(Me.tbMesaSeleccionada)
         Me.Controls.Add(Me.Guna2HtmlLabel5)
@@ -997,7 +1036,6 @@ Partial Class frmPaginaPrincipal
     Friend WithEvents btnGUSiete As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGUCorregir As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnGUCero As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnGUOk As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents tbPrecioTotal As TextBox
     Friend WithEvents tbArticulo As TextBox
@@ -1017,4 +1055,8 @@ Partial Class frmPaginaPrincipal
     Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents timerHoraActual As Timer
     Friend WithEvents btnGUProductoDemo As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents tbEfectivo As TextBox
+    Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents btnGUOk As Guna.UI2.WinForms.Guna2Button
 End Class

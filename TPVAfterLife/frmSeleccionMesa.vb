@@ -7,7 +7,7 @@ Public Class frmSeleccionMesa
     Public Property codEmpleado As String
 
     Private Sub frmSeleccionMesa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'Para colocar los botones:
         Dim miTablaMesas As DataTable
         Dim miDataRowMesas() As DataRow
 
@@ -74,26 +74,32 @@ Public Class frmSeleccionMesa
         Else
             Return
         End If
-
+        'Busco la Cuenta de Empleado a través del código introducido por el usuario en frmAutenticacionEmpleado
         miTablaCuentasEmpleados = conexion._miDataSet.Tables("CuentasEmpleados")
         miDataRowCuentas = miTablaCuentasEmpleados.Select("CodigoAutenticacion = '" & codAutenticacionEmple & "' AND Borrado = False")
         Try
+            'Aquí saco a traves de la relación el Empleado de esa Cuenta de Empleado
             miDataRowEmpleados = miDataRowCuentas(0).GetChildRows("CuentasEmpleados_Empleados")
         Catch ex As Exception
             Dim mensaje As New frmMensaje("Codigo de empleado incorrecto o no valido", True)
             mensaje.ShowDialog()
             Return
         End Try
+        'A partir de aquí solo se ejecuta si lo de arriba ha salido correctamente.
+        'Ahora comprobamos si ese empleado está en activo, es decir, si borrado es false, y lo asignamos en un DataRow simple
         For Each emple As DataRow In miDataRowEmpleados
             If emple("Borrado") = False Then
                 empleado = emple
             End If
         Next
 
+        'codMesa lo recibimos como parámetro, gracias a: "AddHandler btn.Click, Sub() BotonMesa_Click(btn.Name)" cada vez que pulsamos uno de los botones autogenerados
         miTablaMesas = conexion._miDataSet.Tables("Mesas")
         miDataRowMesas = miTablaMesas.Select("IdMesa = '" & codMesa & "' AND Borrado = False")
         mesa = miDataRowMesas(0)
 
+        'Si la mesa está libre creamos un nuevo registro en la tabla Comandas, donde se relacionan tanto el IdEmpleado (obtenido a través del DataRow empleado
+        'como el IdMesa, recibio a través de codMesa como antes hemos comentado
         If mesa("Estado") = "Libre" Then
             Dim nuevoDataRowComandas As DataRow
             nuevoDataRowComandas = conexion._miDataSet.Tables("Comandas").NewRow
@@ -110,20 +116,27 @@ Public Class frmSeleccionMesa
             mesa("Estado") = "Ocupada"
             conexion._miDataSet.Tables("Comandas").Rows.Add(nuevoDataRowComandas)
 
+            'Actualizamos el estado de la mesa, y añadimos la nueva comanda
             conexion.miDataAdapterMesas.Update(conexion._miDataSet, "Mesas")
             conexion.miDataAdapterComandas.Update(conexion._miDataSet, "Comandas")
 
+            'Pasamos los IDs a las variables globales
             Me.codMesa = mesa("IdMesa")
             Me.codEmpleado = empleado("IdEmpleado")
             Me.DialogResult = Windows.Forms.DialogResult.OK
 
+            'Si la mesa está ocupada:
         ElseIf mesa("Estado") = "Ocupada" Then
+            'Comprobamos si está pagada la comanda en esa única mesa, si no está pagada (FormaPago null) la comanda se asigna como comandaAbierta
             miDataRowComandas = mesa.GetChildRows("Comandas_Mesas")
+            'Una mesa puede tener varias comandas abiertas de diferentes empleados
             For Each comanda As DataRow In miDataRowComandas
                 If comanda("FormaPago") Is DBNull.Value Then
                     comandaAbierta = comanda
                 End If
             Next
+
+            'Aquí miramos si el Empleado es "dueño" de alguna de esas comandas
             Dim dataRowEmpleado() As DataRow = miTablaCuentasEmpleados.Select("IdEmpleado = '" & comandaAbierta("IdEmpleado") & "' AND Borrado = False")
             Dim authEmpleado As String = dataRowEmpleado(0)("CodigoAutenticacion")
             If authEmpleado = codAutenticacionEmple Then
