@@ -3,9 +3,13 @@ Imports System.Windows.Forms.Design.AxImporter
 
 Public Class Form1
 
+    Public conexion As New Conexion
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AcceptButton = btnGUIniciarTPV
         CancelButton = btnGUSalir
+
+        conexion.Conectar()
     End Sub
 
     Private Sub btnGUAcercaDe_Click(sender As Object, e As EventArgs) Handles btnGUAcercaDe.Click

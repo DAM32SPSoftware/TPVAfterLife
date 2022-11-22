@@ -1,12 +1,11 @@
 ﻿Public Class frmCantidadProducto
 
     Dim cantidad As Integer
-    Public conexion As New Conexion
     Public idProducto, idComanda As Integer
 
     Public Sub New(CodProducto As Integer, CodComanda As Integer)
         InitializeComponent()
-        conexion.Conectar()
+        Form1.conexion.Conectar()
         lblGUProducto.Text = CodProducto.ToString()
 
         idProducto = CodProducto
@@ -103,19 +102,24 @@
             Dim mensaje As New frmMensaje("La cantidad debe ser mayor que cero", True)
             mensaje.ShowDialog()
         Else
-            miDataRow = conexion._miDataSet.Tables("LineaComandas").NewRow
+            miDataRow = Form1.conexion._miDataSet.Tables("LineaComandas").NewRow
 
             miDataRow("IdComanda") = idComanda
             miDataRow("IdArticulo") = idProducto
             miDataRow("Cantidad") = Integer.Parse(tbCantidad.Text)
             miDataRow("Borrado") = False
 
-            conexion._miDataSet.Tables("LineaComandas").Rows.Add(miDataRow)
+            Dim pruebaRow() As DataRow
+            pruebaRow = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & idComanda & "'")
+
+            Form1.conexion._miDataSet.Tables("LineaComandas").Rows.Add(miDataRow)
+
+            pruebaRow = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & idComanda & "'")
 
             Dim mensaje As New frmMensaje("Producto añadido con éxito!", False)
             mensaje.ShowDialog()
 
-            conexion.ActualizarDB()
+            Form1.conexion.ActualizarDB()
             Me.DialogResult = Windows.Forms.DialogResult.OK
             Me.Close()
         End If

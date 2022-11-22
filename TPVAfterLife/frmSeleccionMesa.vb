@@ -45,7 +45,10 @@ Public Class frmSeleccionMesa
                 If mesa("Estado") = "No disponible" Then
                     btn.Enabled = False
                 End If
+                If mesa("Estado") = "Ocupada" Then
+                    btn.ForeColor = Color.Red
 
+                End If
                 coordX = coordX + 200
                 aux += 1
                 Me.Controls.Add(btn)
