@@ -2,7 +2,7 @@
 
 Public Class frmSeleccionMesa
 
-    Public conexion As New Conexion
+    'Public conexion As New Conexion
     Public Property codMesa As String
     Public Property codEmpleado As String
 
@@ -12,8 +12,8 @@ Public Class frmSeleccionMesa
         Dim miDataRowMesas() As DataRow
 
         Try
-            conexion.Conectar()
-            miTablaMesas = conexion._miDataSet.Tables("Mesas")
+            Form1.conexion.Conectar()
+            miTablaMesas = Form1.conexion._miDataSet.Tables("Mesas")
             miDataRowMesas = miTablaMesas.Select("Borrado = False")
 
             Dim coordX As Integer = 105
@@ -78,7 +78,7 @@ Public Class frmSeleccionMesa
             Return
         End If
         'Busco la Cuenta de Empleado a través del código introducido por el usuario en frmAutenticacionEmpleado
-        miTablaCuentasEmpleados = conexion._miDataSet.Tables("CuentasEmpleados")
+        miTablaCuentasEmpleados = Form1.conexion._miDataSet.Tables("CuentasEmpleados")
         miDataRowCuentas = miTablaCuentasEmpleados.Select("CodigoAutenticacion = '" & codAutenticacionEmple & "' AND Borrado = False")
         Try
             'Aquí saco a traves de la relación el Empleado de esa Cuenta de Empleado
@@ -97,7 +97,7 @@ Public Class frmSeleccionMesa
         Next
 
         'codMesa lo recibimos como parámetro, gracias a: "AddHandler btn.Click, Sub() BotonMesa_Click(btn.Name)" cada vez que pulsamos uno de los botones autogenerados
-        miTablaMesas = conexion._miDataSet.Tables("Mesas")
+        miTablaMesas = Form1.conexion._miDataSet.Tables("Mesas")
         miDataRowMesas = miTablaMesas.Select("IdMesa = '" & codMesa & "' AND Borrado = False")
         mesa = miDataRowMesas(0)
 
@@ -105,7 +105,7 @@ Public Class frmSeleccionMesa
         'como el IdMesa, recibio a través de codMesa como antes hemos comentado
         If mesa("Estado") = "Libre" Then
             Dim nuevoDataRowComandas As DataRow
-            nuevoDataRowComandas = conexion._miDataSet.Tables("Comandas").NewRow
+            nuevoDataRowComandas = Form1.conexion._miDataSet.Tables("Comandas").NewRow
             nuevoDataRowComandas("IdComanda") = Int((9999999 * Rnd()) + 1)
             nuevoDataRowComandas("IdEmpleado") = empleado("IdEmpleado")
             nuevoDataRowComandas("IdMesa") = codMesa
@@ -117,11 +117,11 @@ Public Class frmSeleccionMesa
 
             'miTablaMesas.Rows(conexion._miDataSet.Tables("Mesas").Rows.IndexOf(mesa)).Item("Estado") = "Ocupada"
             mesa("Estado") = "Ocupada"
-            conexion._miDataSet.Tables("Comandas").Rows.Add(nuevoDataRowComandas)
+            Form1.conexion._miDataSet.Tables("Comandas").Rows.Add(nuevoDataRowComandas)
 
             'Actualizamos el estado de la mesa, y añadimos la nueva comanda
-            conexion.miDataAdapterMesas.Update(conexion._miDataSet, "Mesas")
-            conexion.miDataAdapterComandas.Update(conexion._miDataSet, "Comandas")
+            Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
+            Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
 
             'Pasamos los IDs a las variables globales
             Me.codMesa = mesa("IdMesa")

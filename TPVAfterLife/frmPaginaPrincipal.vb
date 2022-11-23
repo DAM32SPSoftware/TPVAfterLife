@@ -216,10 +216,6 @@ Public Class frmPaginaPrincipal
         Dim mesa As DataRow
         Dim precioTotal As Double
 
-
-
-
-
         Dim selecMesas As frmSeleccionMesa = New frmSeleccionMesa
         If (selecMesas.ShowDialog() = DialogResult.OK) Then
             dgvComandas.ClearSelection()
@@ -237,7 +233,7 @@ Public Class frmPaginaPrincipal
             For Each comanda As DataRow In miDataRowComandas
                 If comanda("FormaPago") Is DBNull.Value And comanda("Borrado") = False Then
                     Me.comandaAbierta = comanda
-                    'AQUI HAY ALGO RARO PORQUE COMANDAABIERTA ES DATAROW SIMPLE POR LO QUE SOLO SE ESTÁ QUEDANDO CON LA ÚLTIMA COMANDA QUE VEA
+                    'AQUI HAY ALGO RARO PORQUE COMANDA ABIERTA ES DATAROW SIMPLE POR LO QUE SOLO SE ESTÁ QUEDANDO CON LA ÚLTIMA COMANDA QUE VEA
                 End If
             Next
 
@@ -287,6 +283,8 @@ Public Class frmPaginaPrincipal
             dgvComandas.Columns("IdArticulo").Visible = False
             tbMesaSeleccionada.Text = mesa("Denominacion")
             tbTotalAPagar.Text = precioTotal
+
+            btnMesas.Enabled = False
         Else
             Return
         End If
@@ -326,6 +324,8 @@ Public Class frmPaginaPrincipal
 
                 Dim mensaje As New frmMensaje("Se ha eliminado la comanda", False)
                 mensaje.ShowDialog()
+
+                btnMesas.Enabled = True
 
             End If
         End If
@@ -532,6 +532,7 @@ Public Class frmPaginaPrincipal
             Dim mensaje As frmMensaje = New frmMensaje("La factura está siendo impresa... Total a devolver: " & Double.Parse(tbEfectivo.Text) - Double.Parse(tbTotalAPagar.Text) & "€", False)
             mensaje.ShowDialog()
             comandaPagada()
+            btnMesas.Enabled = True
         End If
     End Sub
 
