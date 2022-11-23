@@ -1,11 +1,11 @@
 ﻿Public Class frmEditarProducto
     Public cantidad As Integer
-    Public conexion As New Conexion
+    'Public conexion As New Conexion
     Public idProducto As Integer
 
     Public Sub New(CodProducto As Integer)
         InitializeComponent()
-        conexion.Conectar()
+        Form1.conexion.Conectar()
         lblGUProducto.Text = CodProducto.ToString()
 
         idProducto = CodProducto

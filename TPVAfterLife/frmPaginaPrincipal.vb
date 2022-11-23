@@ -199,7 +199,7 @@ Public Class frmPaginaPrincipal
                     'Ocultamos IdArticulo
                     dgvComandas.Columns("IdArticulo").Visible = False
                     tbTotalAPagar.Text = precioTotal
-
+                    Form1.conexion.ActualizarDB()
                 Catch ex As Exception
                     Dim mensaje As frmMensaje = New frmMensaje("Error!", False)
                     mensaje.ShowDialog()
@@ -215,7 +215,7 @@ Public Class frmPaginaPrincipal
         Dim miDataRowMesas(), miDataRowComandas() As DataRow
         Dim mesa As DataRow
         Dim precioTotal As Double
-
+        Form1.conexion.ActualizarDB()
         Dim selecMesas As frmSeleccionMesa = New frmSeleccionMesa
         If (selecMesas.ShowDialog() = DialogResult.OK) Then
             dgvComandas.ClearSelection()
@@ -236,6 +236,8 @@ Public Class frmPaginaPrincipal
                     'AQUI HAY ALGO RARO PORQUE COMANDA ABIERTA ES DATAROW SIMPLE POR LO QUE SOLO SE ESTÁ QUEDANDO CON LA ÚLTIMA COMANDA QUE VEA
                 End If
             Next
+
+            'Form1.conexion._miDataSet.Tables("LineaComandas").
 
             'Hacemos conexiones tanto a Artículos como a Categorias
             miTablaArticulos = Form1.conexion._miDataSet.Tables("Articulos")
@@ -276,15 +278,18 @@ Public Class frmPaginaPrincipal
             tbTotalAPagar.Text = ""
             tbEfectivo.Text = ""
             dgvComandas.DataSource = ""
-
+            miTablaArticulosDeComanda.Rows.Clear()
             'Fuente de datos para el dgv
             dgvComandas.DataSource = miTablaArticulosDeComanda
             'Ocultamos IdArticulo
             dgvComandas.Columns("IdArticulo").Visible = False
             tbMesaSeleccionada.Text = mesa("Denominacion")
             tbTotalAPagar.Text = precioTotal
+            Form1.conexion.ActualizarDB()
 
             btnMesas.Enabled = False
+
+
         Else
             Return
         End If
@@ -303,7 +308,7 @@ Public Class frmPaginaPrincipal
                 Dim miDataRowMesas() As DataRow
                 Dim mesa As DataRow
 
-                Me.comandaAbierta("Borrado") = True
+                'Me.comandaAbierta = Nothing
 
                 miTablaMesas = Form1.conexion._miDataSet.Tables("Mesas")
                 miDataRowMesas = miTablaMesas.Select("IdMesa = '" & Me.codMesa & "' AND Borrado = False")
@@ -327,6 +332,17 @@ Public Class frmPaginaPrincipal
 
                 btnMesas.Enabled = True
 
+
+
+
+                Dim miLineaComandas As DataRow()
+
+                miLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
+                For Each linea In miLineaComandas
+                    linea.Delete()
+                Next
+                Form1.conexion.ActualizarDB()
+                Me.comandaAbierta = Nothing
             End If
         End If
     End Sub
@@ -359,13 +375,18 @@ Public Class frmPaginaPrincipal
                         Dim miTablaLineaComandas As DataTable
                         miTablaLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas")
                         miTablaLineaComandas.Rows(dgvComandas.CurrentCell.RowIndex).Delete()
+                        'Form1.conexion.Conectar()
                         Form1.conexion.ActualizarDB()
 
                         Dim mensaje As frmMensaje = New frmMensaje("Producto eliminado con éxito!", False)
                         mensaje.ShowDialog()
                         miTablaArticulosDeComanda.Rows.Clear()
                         'Obtenemos todos sus Artículos:
-                        miDataRowArticulosEnLineaComandas = Me.comandaAbierta.GetChildRows("LineaComandas_Comandas")
+                        'miTablaArticulosDeComanda.Rows.Clear()
+                        Dim prueba2() As DataRow
+                        Dim prueba3 As DataRow
+                        prueba2 = Form1.conexion._miDataSet.Tables("Comandas").Select("IdComanda = '" & comandaAbierta("IdComanda") & "'")
+                        miDataRowArticulosEnLineaComandas = prueba2(0).GetChildRows("LineaComandas_Comandas")
 
                         For Each articulo As DataRow In miDataRowArticulosEnLineaComandas
                             'Obtenemos la info tanto de Articulos como de Categorias
@@ -393,6 +414,7 @@ Public Class frmPaginaPrincipal
                         dgvComandas.Columns("IdArticulo").Visible = False
                         tbTotalAPagar.Text = precioTotal
 
+                        Form1.conexion.ActualizarDB()
                     Catch ex As Exception
                         Dim mensaje As frmMensaje = New frmMensaje("Error!", False)
                         mensaje.ShowDialog()
@@ -419,11 +441,17 @@ Public Class frmPaginaPrincipal
         If dgvComandas.SelectedRows.Count = 1 And dgvComandas.CurrentCell IsNot Nothing Then
             Dim frmEditar As frmEditarProducto = New frmEditarProducto(miTablaLineaComandas.Rows(dgvComandas.CurrentCell.RowIndex).Item("IdArticulo"))
             If frmEditar.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                miTablaLineaComandas.Rows(dgvComandas.CurrentCell.RowIndex).Item("Cantidad") = Integer.Parse(frmEditar.cantidad)
+                'Dim prueba1() As DataRow
+                Form1.conexion._miDataSet.Tables("LineaComandas").Rows(dgvComandas.CurrentCell.RowIndex).Item("Cantidad") = Integer.Parse(frmEditar.cantidad)
+                'miTablaLineaComandas.Rows(dgvComandas.CurrentCell.RowIndex).Item("Cantidad") = Integer.Parse(frmEditar.cantidad)
+
                 Form1.conexion.ActualizarDB()
             End If
-
+            Dim prueba2() As DataRow
+            Dim prueba3 As DataRow
             miTablaArticulosDeComanda.Rows.Clear()
+            prueba2 = Form1.conexion._miDataSet.Tables("Comandas").Select("IdComanda = '" & comandaAbierta("IdComanda") & "'")
+            miDataRowArticulosEnLineaComandas = prueba2(0).GetChildRows("LineaComandas_Comandas")
 
             For Each articulo As DataRow In miDataRowArticulosEnLineaComandas
                 'Obtenemos la info tanto de Articulos como de Categorias
@@ -450,6 +478,7 @@ Public Class frmPaginaPrincipal
             'Ocultamos IdArticulo
             dgvComandas.Columns("IdArticulo").Visible = False
             tbTotalAPagar.Text = precioTotal
+            Form1.conexion.ActualizarDB()
         Else
             Dim mensaje As frmMensaje = New frmMensaje("Seleccione un producto a editar!", False)
             mensaje.ShowDialog()
@@ -540,7 +569,7 @@ Public Class frmPaginaPrincipal
         Dim miTablaMesas As DataTable
         Dim miDataRowMesas() As DataRow
         Dim mesa As DataRow
-
+        Form1.conexion.Conectar()
         Me.comandaAbierta("FormaPago") = "Metálico"
         Me.comandaAbierta("PrecioTotal") = Double.Parse(tbTotalAPagar.Text)
 
@@ -564,10 +593,17 @@ Public Class frmPaginaPrincipal
         tbArticulo.Text = ""
         tbTotalAPagar.Text = ""
 
+        Dim miLineaComandas As DataRow()
+
+        miLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
+        For Each linea In miLineaComandas
+            linea.Delete()
+        Next
+
         Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
         Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
+        Me.comandaAbierta = Nothing
         Form1.conexion.ActualizarDB()
-        comandaAbierta = Nothing
     End Sub
 
     Private Sub btnGUOk_Click(sender As Object, e As EventArgs) Handles btnGUOk.Click

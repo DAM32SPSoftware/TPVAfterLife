@@ -1,4 +1,5 @@
-﻿Imports Guna.UI2.WinForms
+﻿Imports System.Net
+Imports Guna.UI2.WinForms
 
 Public Class frmSeleccionMesa
 
@@ -12,7 +13,7 @@ Public Class frmSeleccionMesa
         Dim miDataRowMesas() As DataRow
 
         Try
-            Form1.conexion.Conectar()
+            Form1.conexion.ActualizarDB()
             miTablaMesas = Form1.conexion._miDataSet.Tables("Mesas")
             miDataRowMesas = miTablaMesas.Select("Borrado = False")
 
@@ -123,7 +124,12 @@ Public Class frmSeleccionMesa
             Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
             Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
 
+            'Form1.conexion.Conectar()
+
             'Pasamos los IDs a las variables globales
+
+            Form1.conexion.Conectar()
+            Form1.conexion.ActualizarDB()
             Me.codMesa = mesa("IdMesa")
             Me.codEmpleado = empleado("IdEmpleado")
             Me.DialogResult = Windows.Forms.DialogResult.OK
