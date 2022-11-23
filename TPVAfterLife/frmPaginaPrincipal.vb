@@ -339,7 +339,7 @@ Public Class frmPaginaPrincipal
 
                 miLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
                 For Each linea In miLineaComandas
-                    linea.Delete()
+                    linea("Borrado") = True
                 Next
                 Form1.conexion.ActualizarDB()
                 Me.comandaAbierta = Nothing
@@ -447,11 +447,13 @@ Public Class frmPaginaPrincipal
 
                 Form1.conexion.ActualizarDB()
             End If
-            Dim prueba2() As DataRow
-            Dim prueba3 As DataRow
+            Dim comandasBorradas() As DataRow
+            Dim lineasComandasBorradas() As DataRow
+
             miTablaArticulosDeComanda.Rows.Clear()
-            prueba2 = Form1.conexion._miDataSet.Tables("Comandas").Select("IdComanda = '" & comandaAbierta("IdComanda") & "'")
-            miDataRowArticulosEnLineaComandas = prueba2(0).GetChildRows("LineaComandas_Comandas")
+            comandasBorradas = Form1.conexion._miDataSet.Tables("Comandas").Select("Borrado = False")
+            lineasComandasBorradas = Form1.conexion._miDataSet.Tables("Comandas").Select("IdComanda = '" & comandasBorradas(0).Item("IdComanda") & "' AND Borrado = False")
+            miDataRowArticulosEnLineaComandas = lineasComandasBorradas(0).GetChildRows("LineaComandas_Comandas")
 
             For Each articulo As DataRow In miDataRowArticulosEnLineaComandas
                 'Obtenemos la info tanto de Articulos como de Categorias
@@ -579,9 +581,19 @@ Public Class frmPaginaPrincipal
         miLineaComandas = miTablaComandas.Select()
 
         For Each linea In miLineaComandas
-            linea("FormaPago") = "Metálico"
-            linea("PrecioTotal") = Double.Parse(tbTotalAPagar.Text)
-            linea("Borrado") = False
+            If linea("FormaPago") Is DBNull.Value Then
+                linea("PrecioTotal") = Double.Parse(tbTotalAPagar.Text)
+                linea("FormaPago") = "Metálico"
+                linea("Borrado") = True
+            End If
+        Next
+
+        Dim miLineaComandas2 As DataRow()
+
+        miLineaComandas2 = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
+        For Each linea In miLineaComandas2
+            linea("Borrado") = True
+            'linea.Delete()
         Next
 
         'mesa("Estado") = "Libre"
@@ -603,7 +615,9 @@ Public Class frmPaginaPrincipal
 
         Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
         Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
+        Me.miDataRowArticulosEnLineaComandas = Nothing
         Me.comandaAbierta = Nothing
+        Me.cantidad = 0
         Form1.conexion.ActualizarDB()
 
         'Dim miLineaComandas As DataRow()
