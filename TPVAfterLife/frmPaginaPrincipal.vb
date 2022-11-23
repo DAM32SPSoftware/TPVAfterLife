@@ -569,15 +569,22 @@ Public Class frmPaginaPrincipal
         Dim miTablaMesas As DataTable
         Dim miDataRowMesas() As DataRow
         Dim mesa As DataRow
+
+        Dim miTablaComandas As DataTable
+        Dim miLineaComandas As DataRow()
+
         Form1.conexion.Conectar()
-        Me.comandaAbierta("FormaPago") = "Metálico"
-        Me.comandaAbierta("PrecioTotal") = Double.Parse(tbTotalAPagar.Text)
 
-        miTablaMesas = Form1.conexion._miDataSet.Tables("Mesas")
-        miDataRowMesas = miTablaMesas.Select("IdMesa = '" & Me.codMesa & "' AND Borrado = False")
-        mesa = miDataRowMesas(0)
+        miTablaComandas = Form1.conexion._miDataSet.Tables("Comandas")
+        miLineaComandas = miTablaComandas.Select()
 
-        mesa("Estado") = "Libre"
+        For Each linea In miLineaComandas
+            linea("FormaPago") = "Metálico"
+            linea("PrecioTotal") = Double.Parse(tbTotalAPagar.Text)
+            linea("Borrado") = False
+        Next
+
+        'mesa("Estado") = "Libre"
 
         tbMesaSeleccionada.Text = ""
         tbUnidades.Text = ""
@@ -593,17 +600,48 @@ Public Class frmPaginaPrincipal
         tbArticulo.Text = ""
         tbTotalAPagar.Text = ""
 
-        Dim miLineaComandas As DataRow()
-
-        miLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
-        For Each linea In miLineaComandas
-            linea.Delete()
-        Next
 
         Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
         Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
         Me.comandaAbierta = Nothing
         Form1.conexion.ActualizarDB()
+
+        'Dim miLineaComandas As DataRow()
+
+        'Me.comandaAbierta("FormaPago") = "Metálico"
+        'Me.comandaAbierta("PrecioTotal") = Double.Parse(tbTotalAPagar.Text)
+
+        'miTablaMesas = Form1.conexion._miDataSet.Tables("Mesas")
+        'miDataRowMesas = miTablaMesas.Select("IdMesa = '" & Me.codMesa & "' AND Borrado = False")
+        'mesa = miDataRowMesas(0)
+
+        'mesa("Estado") = "Libre"
+
+        'tbMesaSeleccionada.Text = ""
+        'tbUnidades.Text = ""
+        'tbArticulo.Text = ""
+        'tbPrecioTotal.Text = ""
+        'tbTotalAPagar.Text = ""
+        'tbEfectivo.Text = ""
+        'dgvComandas.DataSource = ""
+
+        'dgvComandas.ClearSelection()
+
+        'tbUnidades.Text = ""
+        'tbArticulo.Text = ""
+        'tbTotalAPagar.Text = ""
+
+        'Dim miLineaComandas As DataRow()
+
+        'miLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
+        'For Each linea In miLineaComandas
+        '    linea.Delete()
+        'Next
+
+        'Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
+        'Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
+        'Me.comandaAbierta = Nothing
+        'Form1.conexion.ActualizarDB()
     End Sub
 
     Private Sub btnGUOk_Click(sender As Object, e As EventArgs) Handles btnGUOk.Click

@@ -117,7 +117,7 @@ Public Class frmSeleccionMesa
             nuevoDataRowComandas("Borrado") = False
 
             'miTablaMesas.Rows(conexion._miDataSet.Tables("Mesas").Rows.IndexOf(mesa)).Item("Estado") = "Ocupada"
-            mesa("Estado") = "Ocupada"
+            'mesa("Estado") = "Ocupada"
             Form1.conexion._miDataSet.Tables("Comandas").Rows.Add(nuevoDataRowComandas)
 
             'Actualizamos el estado de la mesa, y añadimos la nueva comanda
