@@ -1,4 +1,5 @@
-﻿Imports Guna.UI2.WinForms
+﻿Imports System.IO
+Imports Guna.UI2.WinForms
 
 Public Class frmPaginaPrincipal
 
@@ -79,6 +80,10 @@ Public Class frmPaginaPrincipal
             Dim coordX As Integer = 105
             Dim coordY As Integer = 120
             Dim aux As Integer = 0
+            Dim img() As Byte
+            Dim ms
+            Dim pb As PictureBox
+            Dim btn As Guna2Button
 
             For Each articulo As DataRow In miDataRowArticulos
 
@@ -88,30 +93,51 @@ Public Class frmPaginaPrincipal
                     aux = 0
                 End If
 
-                Dim btn As New Guna2Button With {
-                    .Name = articulo("IdArticulo"),
-                    .Text = articulo("Nombre"),
-                    .Size = New Size(130, 105),
-                    .MaximumSize = New Size(97, 80),
-                    .MinimumSize = New Size(97, 80),
-                    .Location = New Point(coordX, coordY),
-                    .Font = New Drawing.Font("Segoe UI", 10, FontStyle.Bold),
-                    .ForeColor = Color.FromArgb(63, 99, 88),
-                    .Cursor = Cursors.Hand,
-                    .BorderRadius = 15,
-                    .FillColor = Color.FromArgb(252, 226, 173),
-                    .TextAlign = HorizontalAlignment.Center
-                }
+
+
+                If articulo("imagen") IsNot DBNull.Value Then
+
+                    pb = New PictureBox With {
+                        .Name = articulo("IdArticulo"),
+                        .Text = articulo("Nombre"),
+                        .Size = New Size(130, 105),
+                        .MaximumSize = New Size(97, 80),
+                        .MinimumSize = New Size(97, 80),
+                        .Location = New Point(coordX, coordY),
+                        .Cursor = Cursors.Hand,
+                        .SizeMode = PictureBoxSizeMode.Zoom
+                    }
+
+                    img = articulo("imagen")
+                    ms = New MemoryStream(img)
+                    pb.Image = Image.FromStream(ms)
+                    AddHandler pb.Click, Sub() btnArticulo_Click(pb.Name)
+                    Me.Panel2.Controls.Add(pb)
+                Else
+                    btn = New Guna2Button With {
+                        .Name = articulo("IdArticulo"),
+                        .Text = articulo("Nombre"),
+                        .Size = New Size(130, 105),
+                        .MaximumSize = New Size(97, 80),
+                        .MinimumSize = New Size(97, 80),
+                        .Location = New Point(coordX, coordY),
+                        .Font = New Drawing.Font("Segoe UI", 10, FontStyle.Bold),
+                        .ForeColor = Color.FromArgb(63, 99, 88),
+                        .Cursor = Cursors.Hand,
+                        .BorderRadius = 15,
+                        .FillColor = Color.FromArgb(252, 226, 173),
+                        .TextAlign = HorizontalAlignment.Center
+                    }
+                    AddHandler btn.Click, Sub() btnArticulo_Click(btn.Name)
+                    Me.Panel2.Controls.Add(btn)
+                End If
+
                 If articulo("Stock") = 0 Then
                     btn.Enabled = False
                 End If
 
                 coordX = coordX + 150
                 aux += 1
-                Me.Panel2.Controls.Add(btn)
-
-                AddHandler btn.Click, Sub() btnArticulo_Click(btn.Name)
-
             Next
 
         Catch ex As Exception
@@ -410,11 +436,10 @@ Public Class frmPaginaPrincipal
     End Sub
 
     Private Sub btnEditarProducto_Click(sender As Object, e As EventArgs) Handles btnEditarComanda.Click
-        Dim miTablaArticulos, miTablaCategorias As DataTable
+        Dim miTablaArticulos, miTablaCategorias, miTablaLineaComandas As DataTable
         Dim precioTotal As Double
         miTablaArticulos = Form1.conexion._miDataSet.Tables("Articulos")
         miTablaCategorias = Form1.conexion._miDataSet.Tables("Categorias")
-        Dim miTablaLineaComandas As DataTable
         miTablaLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas")
         If dgvComandas.SelectedRows.Count = 1 And dgvComandas.CurrentCell IsNot Nothing Then
             Dim frmEditar As frmEditarProducto = New frmEditarProducto(miTablaLineaComandas.Rows(dgvComandas.CurrentCell.RowIndex).Item("IdArticulo"))

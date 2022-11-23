@@ -25,7 +25,7 @@ Public Class Form1
 
     Private Sub btnGUIniciarTPV_Click(sender As Object, e As EventArgs) Handles btnGUIniciarTPV.Click
         'frmLogin.ShowDialog()
-        Dim PagPrincipal As New frmPaginaPrincipal("2")
+        Dim PagPrincipal As New frmPaginaPrincipal("1")
         PagPrincipal.ShowDialog()
     End Sub
 

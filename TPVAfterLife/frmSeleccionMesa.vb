@@ -122,6 +122,7 @@ Public Class frmSeleccionMesa
             'Actualizamos el estado de la mesa, y añadimos la nueva comanda
             Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
             Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
+            Form1.conexion.Conectar()
 
             'Pasamos los IDs a las variables globales
             Me.codMesa = mesa("IdMesa")
