@@ -143,7 +143,7 @@ Public Class frmPaginaPrincipal
             mensaje.ShowDialog()
         Else
             Dim cantidad As frmCantidadProducto = New frmCantidadProducto(name, comandaAbierta("IdComanda"))
-            MessageBox.Show("Antes del OK")
+            'MessageBox.Show("Antes del OK")
             If cantidad.ShowDialog() = DialogResult.OK Then
                 'conexion.ActualizarDB()
                 'Dim miTablaMesas As DataTable
@@ -162,7 +162,7 @@ Public Class frmPaginaPrincipal
                 '        'AQUI HAY ALGO RARO PORQUE COMANDAABIERTA ES DATAROW SIMPLE POR LO QUE SOLO SE ESTÁ QUEDANDO CON LA ÚLTIMA COMANDA QUE VEA
                 '    End If
                 'Next
-                MessageBox.Show("Antes del try")
+                'MessageBox.Show("Antes del try")
                 Try
                     'Obtenemos todos sus Artículos:
                     Dim pruebaRow() As DataRow
@@ -174,7 +174,7 @@ Public Class frmPaginaPrincipal
                     miTablaArticulosDeComanda.Rows.Clear()
 
                     For Each articulo As DataRow In pruebaRow
-                        MessageBox.Show(articulo("IdArticulo"))
+                        'MessageBox.Show(articulo("IdArticulo"))
                         'Obtenemos la info tanto de Articulos como de Categorias
                         Dim miDataRowInfoArticulo() As DataRow = miTablaArticulos.Select("IdArticulo = '" & articulo("IdArticulo") & "' AND Borrado = False")
                         Dim infoArticulo = miDataRowInfoArticulo(0)
@@ -207,7 +207,7 @@ Public Class frmPaginaPrincipal
                     mensaje.ShowDialog()
                 End Try
             Else
-                MessageBox.Show("nO HA SIDO OK")
+                'MessageBox.Show("NO HA SIDO OK")
             End If
         End If
     End Sub
@@ -583,10 +583,7 @@ Public Class frmPaginaPrincipal
         End If
         Dim confirma As frmConfirmacion = New frmConfirmacion("¿Seguro que desea cobrar?")
         If confirma.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            Dim num1 As Double
-            num1 = Double.Parse(tbEfectivo.Text) - Double.Parse(tbTotalAPagar.Text)
-            Dim mensaje As frmMensaje = New frmMensaje("La factura está siendo impresa... Total a devolver: " & Math.Round(num1, 2) & "€", False)
-            mensaje.ShowDialog()
+
             comandaPagada()
             btnMesas.Enabled = True
         End If
@@ -618,10 +615,41 @@ Public Class frmPaginaPrincipal
         miLineaComandas2 = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
         For Each linea In miLineaComandas2
             'linea("Borrado") = True
+            Dim art As DataRow()
+            art = Form1.conexion._miDataSet.Tables("Articulos").Select("IdArticulo = '" & linea("IdArticulo") & "'")
+            Try
+                If art(0).Item("Stock") - linea("Cantidad") >= 0 Then
+                    art(0).Item("Stock") = art(0).Item("Stock") - linea("Cantidad")
+                    Form1.conexion.ActualizarDB()
+                Else
+                    Dim mensaje As frmMensaje = New frmMensaje("No hay stock suficiente de '" & art(0).Item("Nombre") & "', stock real: '" & art(0).Item("Cantidad") & "'", False)
+                    mensaje.ShowDialog()
+                End If
+
+
+            Catch ex As Exception
+                Dim mensaje As frmMensaje = New frmMensaje("No hay stock suficiente de '" & art(0).Item("Nombre") & "', stock real: '" & art(0).Item("Stock") & "'", False)
+                mensaje.ShowDialog()
+                Exit Sub
+            End Try
             linea.Delete()
         Next
 
         'mesa("Estado") = "Libre"
+
+
+
+
+        Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
+        Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
+        Me.miDataRowArticulosEnLineaComandas = Nothing
+        Me.comandaAbierta = Nothing
+        Me.cantidad = 0
+
+        Dim num1 As Double
+        num1 = Double.Parse(tbEfectivo.Text) - Double.Parse(tbTotalAPagar.Text)
+        Dim mensaje2 As frmMensaje = New frmMensaje("La factura está siendo impresa... Total a devolver: " & Math.Round(num1, 2) & "€", False)
+        mensaje2.ShowDialog()
 
         tbMesaSeleccionada.Text = ""
         tbUnidades.Text = ""
@@ -636,13 +664,15 @@ Public Class frmPaginaPrincipal
         tbUnidades.Text = ""
         tbArticulo.Text = ""
         tbTotalAPagar.Text = ""
+        tbPrecioTotal.Text = ""
+        tbMesaSeleccionada.Text = ""
+        tbUnidades.Text = ""
+        tbArticulo.Text = ""
+        tbPrecioTotal.Text = ""
+        tbTotalAPagar.Text = ""
+        tbEfectivo.Text = ""
+        dgvComandas.DataSource = ""
 
-
-        Form1.conexion.miDataAdapterMesas.Update(Form1.conexion._miDataSet, "Mesas")
-        Form1.conexion.miDataAdapterComandas.Update(Form1.conexion._miDataSet, "Comandas")
-        Me.miDataRowArticulosEnLineaComandas = Nothing
-        Me.comandaAbierta = Nothing
-        Me.cantidad = 0
         Form1.conexion.ActualizarDB()
 
         'Dim miLineaComandas As DataRow()
