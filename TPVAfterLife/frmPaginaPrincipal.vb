@@ -1,4 +1,5 @@
-﻿Imports Guna.UI2.WinForms
+﻿Imports System.IO
+Imports Guna.UI2.WinForms
 
 Public Class frmPaginaPrincipal
 
@@ -79,6 +80,10 @@ Public Class frmPaginaPrincipal
             Dim coordX As Integer = 105
             Dim coordY As Integer = 120
             Dim aux As Integer = 0
+            Dim img() As Byte
+            Dim ms
+            Dim pb As PictureBox
+            Dim btn As Guna2Button
 
             For Each articulo As DataRow In miDataRowArticulos
 
@@ -88,30 +93,53 @@ Public Class frmPaginaPrincipal
                     aux = 0
                 End If
 
-                Dim btn As New Guna2Button With {
-                    .Name = articulo("IdArticulo"),
-                    .Text = articulo("Nombre"),
-                    .Size = New Size(130, 105),
-                    .MaximumSize = New Size(97, 80),
-                    .MinimumSize = New Size(97, 80),
-                    .Location = New Point(coordX, coordY),
-                    .Font = New Drawing.Font("Segoe UI", 10, FontStyle.Bold),
-                    .ForeColor = Color.FromArgb(63, 99, 88),
-                    .Cursor = Cursors.Hand,
-                    .BorderRadius = 15,
-                    .FillColor = Color.FromArgb(252, 226, 173),
-                    .TextAlign = HorizontalAlignment.Center
-                }
+
+
+                If articulo("imagen") IsNot DBNull.Value Then
+
+                    pb = New PictureBox With {
+                        .Name = articulo("IdArticulo"),
+                        .Text = articulo("Nombre"),
+                        .Size = New Size(130, 105),
+                        .MaximumSize = New Size(97, 80),
+                        .MinimumSize = New Size(97, 80),
+                        .Location = New Point(coordX, coordY),
+                        .Cursor = Cursors.Hand,
+                        .SizeMode = PictureBoxSizeMode.Zoom
+                    }
+
+
+                    img = articulo("imagen")
+                    ms = New MemoryStream(img)
+                    pb.Image = Image.FromStream(ms)
+                    Me.Panel2.Controls.Add(pb)
+                    AddHandler pb.Click, AddressOf btnArticulo_Click
+
+                Else
+                    btn = New Guna2Button With {
+                        .Name = articulo("IdArticulo"),
+                        .Text = articulo("Nombre"),
+                        .Size = New Size(130, 105),
+                        .MaximumSize = New Size(97, 80),
+                        .MinimumSize = New Size(97, 80),
+                        .Location = New Point(coordX, coordY),
+                        .Font = New Drawing.Font("Segoe UI", 10, FontStyle.Bold),
+                        .ForeColor = Color.FromArgb(63, 99, 88),
+                        .Cursor = Cursors.Hand,
+                        .BorderRadius = 15,
+                        .FillColor = Color.FromArgb(252, 226, 173),
+                        .TextAlign = HorizontalAlignment.Center
+                    }
+                    AddHandler btn.Click, Sub() btnArticulo_Click(btn.Name)
+                    Me.Panel2.Controls.Add(btn)
+                End If
+
                 If articulo("Stock") = 0 Then
                     btn.Enabled = False
                 End If
 
                 coordX = coordX + 150
                 aux += 1
-                Me.Panel2.Controls.Add(btn)
-
-                AddHandler btn.Click, Sub() btnArticulo_Click(btn.Name)
-
             Next
 
         Catch ex As Exception
@@ -131,7 +159,6 @@ Public Class frmPaginaPrincipal
         lblGUHora.Text = TimeOfDay
     End Sub
 
-    'a cambiar:'
     Private Sub btnArticulo_Click(name As String)
         Dim miTablaArticulos, miTablaCategorias As DataTable
         Dim precioTotal As Double
@@ -143,6 +170,90 @@ Public Class frmPaginaPrincipal
             mensaje.ShowDialog()
         Else
             Dim cantidad As frmCantidadProducto = New frmCantidadProducto(name, comandaAbierta("IdComanda"))
+            'MessageBox.Show("Antes del OK")
+            If cantidad.ShowDialog() = DialogResult.OK Then
+                'conexion.ActualizarDB()
+                'Dim miTablaMesas As DataTable
+                'Dim miDataRowMesas(), miDataRowComandas() As DataRow
+                'Dim mesa As DataRow
+
+                'miTablaMesas = conexion._miDataSet.Tables("Mesas")
+                'miDataRowMesas = miTablaMesas.Select("IdMesa = '" & Me.codMesa & "' AND Borrado = False")
+                'mesa = miDataRowMesas(0)
+
+                ''Obtengo las comandas de dicha mesa y comprueba si está pagada y si está borrada, si está sin pagar y no está borrada va al dataRow
+                'miDataRowComandas = mesa.GetChildRows("Comandas_Mesas")
+                'For Each comanda As DataRow In miDataRowComandas
+                '    If comanda("FormaPago") Is DBNull.Value And comanda("Borrado") = False Then
+                '        Me.comandaAbierta = comanda
+                '        'AQUI HAY ALGO RARO PORQUE COMANDAABIERTA ES DATAROW SIMPLE POR LO QUE SOLO SE ESTÁ QUEDANDO CON LA ÚLTIMA COMANDA QUE VEA
+                '    End If
+                'Next
+                'MessageBox.Show("Antes del try")
+                Try
+                    'Obtenemos todos sus Artículos:
+                    Dim pruebaRow() As DataRow
+                    Dim prueba As DataRow
+                    Form1.conexion.Conectar()
+                    Form1.conexion.ActualizarDB()
+                    pruebaRow = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & comandaAbierta("IdComanda") & "'")
+
+                    miTablaArticulosDeComanda.Rows.Clear()
+
+                    For Each articulo As DataRow In pruebaRow
+                        'MessageBox.Show(articulo("IdArticulo"))
+                        'Obtenemos la info tanto de Articulos como de Categorias
+                        Dim miDataRowInfoArticulo() As DataRow = miTablaArticulos.Select("IdArticulo = '" & articulo("IdArticulo") & "' AND Borrado = False")
+                        Dim infoArticulo = miDataRowInfoArticulo(0)
+                        Dim miDataRowCategorias() As DataRow = miTablaCategorias.Select("IdCategoria = '" & infoArticulo("IdCategoria") & "' AND Borrado = False")
+                        Dim infoCategoria = miDataRowCategorias(0)
+
+                        'Añadimos dicho articulo a lo que luego se usará como fuente para el dataGridView
+                        miTablaArticulosDeComanda.Rows.Add(infoArticulo("IdArticulo"), infoArticulo("Nombre"), articulo("Cantidad"), infoArticulo("Precio"), infoCategoria("NombreCategoria"))
+
+                        'Actualizamos el precio total
+                        precioTotal = precioTotal + (articulo("Cantidad") * infoArticulo("Precio"))
+                    Next
+                    '
+                    tbUnidades.Text = ""
+                    tbArticulo.Text = ""
+                    tbPrecioTotal.Text = ""
+                    tbTotalAPagar.Text = ""
+                    tbEfectivo.Text = ""
+                    'Fuente de datos para el dgv
+                    dgvComandas.DataSource = ""
+                    dgvComandas.DataSource = miTablaArticulosDeComanda
+                    'Ocultamos IdArticulo
+                    dgvComandas.Columns("IdArticulo").Visible = False
+                    precioTotal = Math.Round(precioTotal, 2)
+                    tbTotalAPagar.Text = precioTotal
+                    'Convert.ToDecimal(tbTotalAPagar.Text)
+                    Form1.conexion.ActualizarDB()
+                Catch ex As Exception
+                    Dim mensaje As frmMensaje = New frmMensaje("Error!", False)
+                    mensaje.ShowDialog()
+                End Try
+            Else
+                'MessageBox.Show("NO HA SIDO OK")
+            End If
+        End If
+    End Sub
+
+    'el de fotos'
+    Private Sub btnArticulo_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Dim pb As PictureBox = DirectCast(sender, PictureBox)
+        Dim name As String = DirectCast(pb.Name, String)
+
+        Dim miTablaArticulos, miTablaCategorias As DataTable
+        Dim precioTotal As Double
+        miTablaArticulos = Form1.conexion._miDataSet.Tables("Articulos")
+        miTablaCategorias = Form1.conexion._miDataSet.Tables("Categorias")
+
+        If Me.comandaAbierta Is Nothing Then
+            Dim mensaje As frmMensaje = New frmMensaje("No hay ninguna comanda abierta!", False)
+            mensaje.ShowDialog()
+        Else
+            Dim cantidad As frmCantidadProducto = New frmCantidadProducto(Name, comandaAbierta("IdComanda"))
             'MessageBox.Show("Antes del OK")
             If cantidad.ShowDialog() = DialogResult.OK Then
                 'conexion.ActualizarDB()
@@ -725,5 +836,9 @@ Public Class frmPaginaPrincipal
     Private Sub btnUltimaComanda_Click(sender As Object, e As EventArgs) Handles btnUltimaComanda.Click
         Dim cajaDiaria As frmCajaDiaria = New frmCajaDiaria()
         cajaDiaria.ShowDialog()
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class
