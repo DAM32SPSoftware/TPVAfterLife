@@ -187,7 +187,7 @@ Public Class frmPaginaPrincipal
                         'Actualizamos el precio total
                         precioTotal = precioTotal + (articulo("Cantidad") * infoArticulo("Precio"))
                     Next
-
+                    '
                     tbUnidades.Text = ""
                     tbArticulo.Text = ""
                     tbPrecioTotal.Text = ""
