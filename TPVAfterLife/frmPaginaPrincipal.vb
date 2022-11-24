@@ -199,6 +199,7 @@ Public Class frmPaginaPrincipal
                     'Ocultamos IdArticulo
                     dgvComandas.Columns("IdArticulo").Visible = False
                     tbTotalAPagar.Text = precioTotal
+                    Convert.ToDecimal(tbTotalAPagar.Text)
                     Form1.conexion.ActualizarDB()
                 Catch ex As Exception
                     Dim mensaje As frmMensaje = New frmMensaje("Error!", False)
@@ -315,7 +316,7 @@ Public Class frmPaginaPrincipal
                 mesa = miDataRowMesas(0)
 
                 mesa("Estado") = "Libre"
-
+                dgvComandas.ClearSelection()
                 tbMesaSeleccionada.Text = ""
                 tbUnidades.Text = ""
                 tbArticulo.Text = ""
@@ -331,18 +332,37 @@ Public Class frmPaginaPrincipal
                 mensaje.ShowDialog()
 
                 btnMesas.Enabled = True
-
-
-
-
-                Dim miLineaComandas As DataRow()
-
-                miLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
-                For Each linea In miLineaComandas
-                    linea("Borrado") = True
-                Next
                 Form1.conexion.ActualizarDB()
+                Form1.conexion.Conectar()
+
+                Dim miTablaComandas As DataTable
+                Dim miLineaComandas2 As DataRow()
+
+
+                miTablaComandas = Form1.conexion._miDataSet.Tables("Comandas")
+                miLineaComandas2 = miTablaComandas.Select()
+                'Form1.conexion.Conectar()
+
+                For Each linea In Form1.conexion._miDataSet.Tables("Comandas").Select("Borrado = False")
+                    'If linea("FormaPago") Is DBNull.Value Then
+                    linea("Borrado") = True
+                    'End If
+                Next
+
+                Dim miTablaLineaComandas As DataTable
+                Dim miLineaComandas() As DataRow
+
+                miLineaComandas = Form1.conexion._miDataSet.Tables("LineaComandas").Select()
+                For Each linea In miLineaComandas
+                    'linea("Borrado") = True
+                    linea.Delete()
+                Next
+
+                Form1.conexion.ActualizarDB()
+
+                Me.miDataRowArticulosEnLineaComandas = Nothing
                 Me.comandaAbierta = Nothing
+                Me.cantidad = 0
             End If
         End If
     End Sub
@@ -480,6 +500,7 @@ Public Class frmPaginaPrincipal
             'Ocultamos IdArticulo
             dgvComandas.Columns("IdArticulo").Visible = False
             tbTotalAPagar.Text = precioTotal
+            Convert.ToDecimal(tbTotalAPagar.Text)
             Form1.conexion.ActualizarDB()
         Else
             Dim mensaje As frmMensaje = New frmMensaje("Seleccione un producto a editar!", False)
@@ -560,7 +581,9 @@ Public Class frmPaginaPrincipal
         End If
         Dim confirma As frmConfirmacion = New frmConfirmacion("¿Seguro que desea cobrar?")
         If confirma.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            Dim mensaje As frmMensaje = New frmMensaje("La factura está siendo impresa... Total a devolver: " & Double.Parse(tbEfectivo.Text) - Double.Parse(tbTotalAPagar.Text) & "€", False)
+            Dim num1 As Double
+            num1 = Double.Parse(tbEfectivo.Text) - Double.Parse(tbTotalAPagar.Text)
+            Dim mensaje As frmMensaje = New frmMensaje("La factura está siendo impresa... Total a devolver: " & Math.Round(num1, 2) & "€", False)
             mensaje.ShowDialog()
             comandaPagada()
             btnMesas.Enabled = True
@@ -592,8 +615,8 @@ Public Class frmPaginaPrincipal
 
         miLineaComandas2 = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & Me.comandaAbierta("IdComanda") & "'")
         For Each linea In miLineaComandas2
-            linea("Borrado") = True
-            'linea.Delete()
+            'linea("Borrado") = True
+            linea.Delete()
         Next
 
         'mesa("Estado") = "Libre"
