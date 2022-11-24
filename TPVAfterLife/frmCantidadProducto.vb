@@ -6,7 +6,7 @@
     Public Sub New(CodProducto As Integer, CodComanda As Integer)
         InitializeComponent()
         Form1.conexion.Conectar()
-
+        '
         Dim miArticulo() As DataRow
         miArticulo = Form1.conexion._miDataSet.Tables("Articulos").Select("IdArticulo = '" & CodProducto & "'")
         lblGUProducto.Text = miArticulo(0).Item("Nombre").ToString
