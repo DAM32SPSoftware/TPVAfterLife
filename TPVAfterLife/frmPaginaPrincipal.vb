@@ -198,8 +198,9 @@ Public Class frmPaginaPrincipal
                     dgvComandas.DataSource = miTablaArticulosDeComanda
                     'Ocultamos IdArticulo
                     dgvComandas.Columns("IdArticulo").Visible = False
+                    precioTotal = Math.Round(precioTotal, 2)
                     tbTotalAPagar.Text = precioTotal
-                    Convert.ToDecimal(tbTotalAPagar.Text)
+                    'Convert.ToDecimal(tbTotalAPagar.Text)
                     Form1.conexion.ActualizarDB()
                 Catch ex As Exception
                     Dim mensaje As frmMensaje = New frmMensaje("Error!", False)
@@ -499,8 +500,9 @@ Public Class frmPaginaPrincipal
             dgvComandas.DataSource = miTablaArticulosDeComanda
             'Ocultamos IdArticulo
             dgvComandas.Columns("IdArticulo").Visible = False
+            precioTotal = Math.Round(precioTotal, 2)
             tbTotalAPagar.Text = precioTotal
-            Convert.ToDecimal(tbTotalAPagar.Text)
+            'Convert.ToDecimal(tbTotalAPagar.Text)
             Form1.conexion.ActualizarDB()
         Else
             Dim mensaje As frmMensaje = New frmMensaje("Seleccione un producto a editar!", False)

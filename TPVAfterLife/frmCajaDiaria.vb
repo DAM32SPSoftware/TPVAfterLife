@@ -45,7 +45,9 @@
             totalHoy += comanda("PrecioTotal")
         Next
 
+        totalHoy = Math.Round(totalHoy, 2)
         lblTotal.Text = totalHoy.ToString & "€"
+
         DataGridView1.DataSource = miTablaArticulosDeComanda
     End Sub
 
