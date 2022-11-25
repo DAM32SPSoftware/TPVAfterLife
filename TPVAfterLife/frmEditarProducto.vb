@@ -1,12 +1,15 @@
 ﻿Public Class frmEditarProducto
     Public cantidad As Integer
-    Public conexion As New Conexion
+    'Public conexion As New Conexion
     Public idProducto As Integer
 
     Public Sub New(CodProducto As Integer)
         InitializeComponent()
-        conexion.Conectar()
-        lblGUProducto.Text = CodProducto.ToString()
+        Form1.conexion.Conectar()
+
+        Dim miArticulo() As DataRow
+        miArticulo = Form1.conexion._miDataSet.Tables("Articulos").Select("IdArticulo = '" & CodProducto & "'")
+        lblGUProducto.Text = miArticulo(0).Item("Nombre").ToString
 
         idProducto = CodProducto
 

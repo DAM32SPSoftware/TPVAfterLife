@@ -47,7 +47,7 @@ Partial Class frmCajaDiaria
         Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.Guna2Button1.Location = New System.Drawing.Point(568, 371)
+        Me.Guna2Button1.Location = New System.Drawing.Point(587, 332)
         Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.ShadowDecoration.BorderRadius = 20
@@ -65,7 +65,7 @@ Partial Class frmCajaDiaria
         Me.Panel1.Controls.Add(Me.lblGUInfoProducto)
         Me.Panel1.Location = New System.Drawing.Point(0, -2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(810, 73)
+        Me.Panel1.Size = New System.Drawing.Size(843, 73)
         Me.Panel1.TabIndex = 36
         '
         'lblGUFecha
@@ -74,7 +74,7 @@ Partial Class frmCajaDiaria
         Me.lblGUFecha.BackColor = System.Drawing.Color.Transparent
         Me.lblGUFecha.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.lblGUFecha.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.lblGUFecha.Location = New System.Drawing.Point(180, 21)
+        Me.lblGUFecha.Location = New System.Drawing.Point(196, 21)
         Me.lblGUFecha.Name = "lblGUFecha"
         Me.lblGUFecha.Size = New System.Drawing.Size(107, 32)
         Me.lblGUFecha.TabIndex = 6
@@ -86,7 +86,7 @@ Partial Class frmCajaDiaria
         Me.lblGUInfoProducto.BackColor = System.Drawing.Color.Transparent
         Me.lblGUInfoProducto.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.lblGUInfoProducto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.lblGUInfoProducto.Location = New System.Drawing.Point(17, 21)
+        Me.lblGUInfoProducto.Location = New System.Drawing.Point(33, 21)
         Me.lblGUInfoProducto.Name = "lblGUInfoProducto"
         Me.lblGUInfoProducto.Size = New System.Drawing.Size(140, 32)
         Me.lblGUInfoProducto.TabIndex = 5
@@ -105,17 +105,17 @@ Partial Class frmCajaDiaria
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(532, 343)
+        Me.DataGridView1.Size = New System.Drawing.Size(532, 304)
         Me.DataGridView1.TabIndex = 37
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(568, 94)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(225, 32)
+        Me.Label1.Size = New System.Drawing.Size(244, 32)
         Me.Label1.TabIndex = 38
         Me.Label1.Text = "Total facturado hoy:"
         '
@@ -130,9 +130,9 @@ Partial Class frmCajaDiaria
         'lblTotal
         '
         Me.lblTotal.AutoSize = True
-        Me.lblTotal.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.lblTotal.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(173, Byte), Integer))
-        Me.lblTotal.Location = New System.Drawing.Point(661, 172)
+        Me.lblTotal.Location = New System.Drawing.Point(568, 143)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(0, 32)
         Me.lblTotal.TabIndex = 40
@@ -143,14 +143,16 @@ Partial Class frmCajaDiaria
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(810, 447)
+        Me.ClientSize = New System.Drawing.Size(843, 447)
         Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Guna2Button1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmCajaDiaria"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Caja Diaria AfterLife"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

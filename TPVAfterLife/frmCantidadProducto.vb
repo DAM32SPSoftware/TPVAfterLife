@@ -6,7 +6,10 @@
     Public Sub New(CodProducto As Integer, CodComanda As Integer)
         InitializeComponent()
         Form1.conexion.Conectar()
-        lblGUProducto.Text = CodProducto.ToString()
+        '
+        Dim miArticulo() As DataRow
+        miArticulo = Form1.conexion._miDataSet.Tables("Articulos").Select("IdArticulo = '" & CodProducto & "'")
+        lblGUProducto.Text = miArticulo(0).Item("Nombre").ToString
 
         idProducto = CodProducto
         idComanda = CodComanda
@@ -102,6 +105,7 @@
             Dim mensaje As New frmMensaje("La cantidad debe ser mayor que cero", True)
             mensaje.ShowDialog()
         Else
+
             miDataRow = Form1.conexion._miDataSet.Tables("LineaComandas").NewRow
 
             miDataRow("IdComanda") = idComanda
@@ -110,10 +114,11 @@
             miDataRow("Borrado") = False
 
             Dim pruebaRow() As DataRow
+            'Form1.conexion.Conectar()
             pruebaRow = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & idComanda & "'")
 
             Form1.conexion._miDataSet.Tables("LineaComandas").Rows.Add(miDataRow)
-
+            'Form1.conexion.Conectar()
             pruebaRow = Form1.conexion._miDataSet.Tables("LineaComandas").Select("IdComanda = '" & idComanda & "'")
 
             Dim mensaje As New frmMensaje("Producto añadido con éxito!", False)
