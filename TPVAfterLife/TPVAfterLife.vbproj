@@ -16,8 +16,6 @@
 
   <ItemGroup>
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.3.5" />
-    <PackageReference Include="MegaApiClient" Version="1.10.3" />
-    <PackageReference Include="RestSharp" Version="105.2.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
   </ItemGroup>
 
