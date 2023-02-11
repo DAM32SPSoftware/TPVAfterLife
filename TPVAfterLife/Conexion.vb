@@ -6,7 +6,7 @@ Public Class Conexion
     Public miConexion As New SqlConnection
     Public miDataAdapterCuentasEmpleados, miDataAdapterEmpleados, miDataAdapterTipoEmpleado, miDataAdapterMesas, miDataAdapterComandas As SqlDataAdapter
     Public miDataAdapterFacturas, miDataAdapterCajas, miDataAdapterLineaComandas, miDataAdapterArticulos, miDataAdapterCategorias As SqlDataAdapter
-    Public cadenaDeConexion = "SERVER=DESKTOP-2S7OK2H\SQLEXPRESS;Integrated Security=SSPI;DATABASE=Reto1DAM32"
+    Public cadenaDeConexion = "SERVER=DESKTOP-198S9HC\SQLEXPRESS;Integrated Security=SSPI;DATABASE=Reto1DAM32"
 
     Public Sub Conectar()
         Try
