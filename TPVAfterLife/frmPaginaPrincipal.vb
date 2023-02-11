@@ -178,4 +178,12 @@
     Private Sub btnGestionArticulos_Click(sender As Object, e As EventArgs) Handles btnGestionArticulos.Click
         frmArticulosCRUD.ShowDialog()
     End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+
+    End Sub
+
+    Private Sub btMeteorologia_Click(sender As Object, e As EventArgs) Handles btMeteorologia.Click
+        Meteorologia.ShowDialog()
+    End Sub
 End Class
